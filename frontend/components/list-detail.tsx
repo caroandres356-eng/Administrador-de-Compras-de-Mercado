@@ -19,9 +19,8 @@ type FilterTab = 'all' | 'pending' | 'purchased'
 export function ListDetail({ listId, onBack }: ListDetailProps) {
   const { lists, toggleProduct, deleteProduct, addProduct, updateProduct } = useApp()
   const [activeTab, setActiveTab] = useState<FilterTab>('all')
-  const [editingProductId, setEditingProductId] = useState<string | null>(null)
 
-  const list = lists.find((l) => l.id === listId)
+  const list = lists.find((l) => l.id.toString() === listId.toString())
 
   if (!list) {
     return (
@@ -31,17 +30,17 @@ export function ListDetail({ listId, onBack }: ListDetailProps) {
     )
   }
 
-  const filteredProducts = list.products.filter((product) => {
+  const filteredProducts = (list.products || []).filter((product) => {
     if (activeTab === 'pending') return !product.purchased
     if (activeTab === 'purchased') return product.purchased
     return true
   })
-
-  const totalItems = list.products.length
-  const purchasedItems = list.products.filter((p) => p.purchased).length
+  
+  const totalItems = (list.products || []).length
+  const purchasedItems = (list.products || []).filter((p) => p.purchased).length
   const pendingItems = totalItems - purchasedItems
-  const totalSpend = list.products.reduce((sum, p) => sum + p.price, 0)
-  const purchasedSpend = list.products
+  const totalSpend = (list.products || []).reduce((sum, p) => sum + p.price, 0)
+  const purchasedSpend = (list.products || [])
     .filter((p) => p.purchased)
     .reduce((sum, p) => sum + p.price, 0)
 
@@ -113,9 +112,9 @@ export function ListDetail({ listId, onBack }: ListDetailProps) {
                 key={product.id}
                 product={product}
                 index={index}
-                onToggle={() => toggleProduct(listId, product.id)}
-                onEdit={() => setEditingProductId(product.id)}
-                onDelete={() => deleteProduct(listId, product.id)}
+                listId={listId.toString()}
+                onToggle={() => toggleProduct(listId.toString(), product.id.toString())}
+                onDelete={() => deleteProduct(listId.toString(), product.id.toString())}
               />
             ))}
           </AnimatePresence>
@@ -140,7 +139,7 @@ export function ListDetail({ listId, onBack }: ListDetailProps) {
           )}
         </div>
 
-        <AddProductForm onAdd={(product) => addProduct(listId, product)} />
+        <AddProductForm onAdd={(product) => addProduct(listId.toString(), product)} />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

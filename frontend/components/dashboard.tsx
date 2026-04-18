@@ -27,8 +27,8 @@ export function Dashboard({ onListSelect, onLogout, onStatsClick }: DashboardPro
   })
 
   const activeLists = lists.filter((list) => {
-    const pending = list.products.filter((p) => !p.purchased).length
-    return pending > 0 || list.products.length === 0
+    const pending = (list.products || []).filter((p) => !p.purchased).length
+    return pending > 0 || (list.products || []).length === 0
   })
 
   return (

@@ -13,10 +13,10 @@ interface ListCardProps {
 }
 
 export function ListCard({ list, index, onSelect, onDelete }: ListCardProps) {
-  const purchasedCount = list.products.filter((p) => p.purchased).length
-  const totalCount = list.products.length
+  const purchasedCount = (list.products || []).filter((p) => p.purchased).length
+  const totalCount = (list.products || []).length
   const progress = totalCount > 0 ? (purchasedCount / totalCount) * 100 : 0
-  const totalSpend = list.products.reduce((sum, p) => sum + p.price, 0)
+  const totalSpend = (list.products || []).reduce((sum, p) => sum + p.price, 0)
 
   return (
     <motion.div
