@@ -18,10 +18,30 @@ export function AddProductForm({ onAdd }: AddProductFormProps) {
   const [unit, setUnit] = useState('')
   const [price, setPrice] = useState('')
   const [category, setCategory] = useState<Category>('comida')
+  const [quantityError, setQuantityError] = useState('')
+  const [priceError, setPriceError] = useState('')
+
+  const handleQuantityChange = (val: string) => {
+    setQuantity(val)
+    if (val && isNaN(Number(val))) {
+      setQuantityError('⚠️ Solo se permiten valores numéricos')
+    } else {
+      setQuantityError('')
+    }
+  }
+
+  const handlePriceChange = (val: string) => {
+    setPrice(val)
+    if (val && isNaN(Number(val))) {
+      setPriceError('⚠️ Solo se permiten valores numéricos')
+    } else {
+      setPriceError('')
+    }
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (name.trim() && quantity && price) {
+    if (name.trim() && quantity && price && !quantityError && !priceError) {
       onAdd({
         name: name.trim(),
         quantity: parseFloat(quantity),
@@ -35,6 +55,8 @@ export function AddProductForm({ onAdd }: AddProductFormProps) {
       setUnit('')
       setPrice('')
       setCategory('comida')
+      setQuantityError('')
+      setPriceError('')
       setIsOpen(false)
     }
   }
@@ -90,29 +112,32 @@ export function AddProductForm({ onAdd }: AddProductFormProps) {
                   autoFocus
                 />
               </div>
-              <Input
-                type="number"
-                value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
-                placeholder="Cantidad"
-                className="h-10 rounded-lg"
-                min="0"
-                step="0.1"
-              />
+              <div>
+                <Input
+                  type="text"
+                  value={quantity}
+                  onChange={(e) => handleQuantityChange(e.target.value)}
+                  placeholder="Cantidad"
+                  className={`h-10 rounded-lg ${quantityError ? 'border-destructive' : ''}`}
+                />
+                {quantityError && <p className="text-xs text-destructive mt-1">{quantityError}</p>}
+              </div>
               <Input
                 value={unit}
                 onChange={(e) => setUnit(e.target.value)}
                 placeholder="Unidad (kg, L, und)"
                 className="h-10 rounded-lg"
               />
-              <Input
-                type="number"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-                placeholder="Precio (COP)"
-                className="h-10 rounded-lg col-span-2"
-                min="0"
-              />
+              <div className="col-span-2">
+                <Input
+                  type="text"
+                  value={price}
+                  onChange={(e) => handlePriceChange(e.target.value)}
+                  placeholder="Precio (COP)"
+                  className={`h-10 rounded-lg w-full ${priceError ? 'border-destructive' : ''}`}
+                />
+                {priceError && <p className="text-xs text-destructive mt-1">{priceError}</p>}
+              </div>
             </div>
 
             <div>
@@ -137,7 +162,7 @@ export function AddProductForm({ onAdd }: AddProductFormProps) {
 
             <Button
               type="submit"
-              disabled={!name.trim() || !quantity || !price}
+              disabled={!name.trim() || !quantity || !price || !!quantityError || !!priceError}
               className="w-full h-10 rounded-lg"
             >
               Agregar

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowLeft, TrendingUp, ShoppingBag, Tag } from 'lucide-react'
+import { ArrowLeft, TrendingUp, ShoppingBag, Tag, Loader2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   Bar,
@@ -14,29 +14,70 @@ import {
   YAxis,
   Tooltip,
 } from 'recharts'
-import { useApp } from '@/lib/app-context'
-import { monthlySpendData, categorySpendData, formatCOP, categoryConfig } from '@/lib/mock-data'
+import { useEffect, useState } from 'react'
+import { formatCOP } from '@/lib/mock-data'
 
 interface StatsViewProps {
   onBack: () => void
 }
 
-export function StatsView({ onBack }: StatsViewProps) {
-  const { lists } = useApp()
+interface StatsData {
+  monthlySpend: { month: string; amount: number }[]
+  categorySpend: { category: string; amount: number }[]
+  listSpend: { list: string; amount: number }[]
+  totalLists: number
+  totalProducts: number
+  purchasedProducts: number
+  pendingProducts: number
+}
 
-  const totalMonthlySpend = monthlySpendData[monthlySpendData.length - 1]?.amount || 0
-  const topCategory = categorySpendData.reduce((max, cat) =>
-    cat.amount > max.amount ? cat : max
-  )
-  
-  const allProducts = lists.flatMap((l) => l.products)
-  const productCounts = allProducts.reduce((acc, p) => {
-    acc[p.name] = (acc[p.name] || 0) + 1
-    return acc
-  }, {} as Record<string, number>)
-  const topProduct = Object.entries(productCounts).sort((a, b) => b[1] - a[1])[0]
+export function StatsView({ onBack }: StatsViewProps) {
+  const [stats, setStats] = useState<StatsData | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const token = localStorage.getItem('mercalist-token')
+        const response = await fetch('http://localhost:8080/api/stats', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        })
+        if (response.ok) {
+          const data = await response.json()
+          setStats(data)
+        }
+      } catch (error) {
+        console.error('Failed to fetch stats:', error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchStats()
+  }, [])
 
   const pieColors = ['#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#6b7280']
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    )
+  }
+
+  if (!stats) return null
+
+  const monthlySpendData = stats.monthlySpend || []
+  const categorySpendData = stats.categorySpend || []
+  const listSpendData = stats.listSpend || []
+  
+  const totalMonthlySpend = monthlySpendData[monthlySpendData.length - 1]?.amount || 0
+  const topCategory = categorySpendData.length > 0 
+    ? categorySpendData.reduce((max, cat) => cat.amount > max.amount ? cat : max)
+    : { category: 'N/A', amount: 0 }
 
   const statCards = [
     {
@@ -52,8 +93,8 @@ export function StatsView({ onBack }: StatsViewProps) {
       color: 'bg-amber-500',
     },
     {
-      title: 'Producto frecuente',
-      value: topProduct?.[0] || 'N/A',
+      title: 'Listas totales',
+      value: stats.totalLists.toString(),
       icon: ShoppingBag,
       color: 'bg-purple-500',
     },
@@ -75,7 +116,7 @@ export function StatsView({ onBack }: StatsViewProps) {
           >
             <ArrowLeft className="w-5 h-5" />
           </Button>
-          <h1 className="font-bold text-lg text-foreground">Estadisticas</h1>
+          <h1 className="font-bold text-lg text-foreground">Estadisticas Reales</h1>
         </div>
       </motion.header>
 
@@ -106,7 +147,7 @@ export function StatsView({ onBack }: StatsViewProps) {
           transition={{ delay: 0.3 }}
           className="bg-card rounded-2xl border border-border p-5"
         >
-          <h3 className="font-semibold text-foreground mb-4">Gastos mensuales</h3>
+          <h3 className="font-semibold text-foreground mb-4">Historico de gastos</h3>
           <div className="h-64">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={monthlySpendData} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
@@ -193,31 +234,79 @@ export function StatsView({ onBack }: StatsViewProps) {
           </div>
         </motion.div>
 
+        {/* Gasto por lista */}
+        {listSpendData.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45 }}
+            className="bg-card rounded-2xl border border-border p-5"
+          >
+            <h3 className="font-semibold text-foreground mb-4">Gasto por lista</h3>
+            <div className="h-64">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart
+                  data={listSpendData}
+                  layout="vertical"
+                  margin={{ top: 0, right: 20, left: 10, bottom: 0 }}
+                >
+                  <XAxis
+                    type="number"
+                    axisLine={false}
+                    tickLine={false}
+                    tick={{ fill: '#64748b', fontSize: 11 }}
+                    tickFormatter={(value) => `${value / 1000}k`}
+                  />
+                  <YAxis
+                    type="category"
+                    dataKey="list"
+                    axisLine={false}
+                    tickLine={false}
+                    tick={{ fill: '#64748b', fontSize: 12 }}
+                    width={90}
+                  />
+                  <Tooltip
+                    formatter={(value: number) => [formatCOP(value), 'Gasto']}
+                    contentStyle={{
+                      backgroundColor: 'white',
+                      border: '1px solid #e2e8f0',
+                      borderRadius: '12px',
+                      boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+                    }}
+                  />
+                  <Bar dataKey="amount" radius={[0, 8, 8, 0]} fill="#8b5cf6" />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Resumen de inventario */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
           className="bg-card rounded-2xl border border-border p-5"
         >
-          <h3 className="font-semibold text-foreground mb-4">Resumen de listas</h3>
+          <h3 className="font-semibold text-foreground mb-4">Resumen de inventario</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="text-center p-4 bg-muted/50 rounded-xl">
-              <p className="text-3xl font-bold text-foreground">{lists.length}</p>
+              <p className="text-3xl font-bold text-foreground">{stats.totalLists}</p>
               <p className="text-sm text-muted-foreground">Listas totales</p>
             </div>
             <div className="text-center p-4 bg-muted/50 rounded-xl">
-              <p className="text-3xl font-bold text-foreground">{allProducts.length}</p>
+              <p className="text-3xl font-bold text-foreground">{stats.totalProducts}</p>
               <p className="text-sm text-muted-foreground">Productos</p>
             </div>
             <div className="text-center p-4 bg-muted/50 rounded-xl">
               <p className="text-3xl font-bold text-primary">
-                {allProducts.filter((p) => p.purchased).length}
+                {stats.purchasedProducts}
               </p>
               <p className="text-sm text-muted-foreground">Comprados</p>
             </div>
             <div className="text-center p-4 bg-muted/50 rounded-xl">
               <p className="text-3xl font-bold text-foreground">
-                {allProducts.filter((p) => !p.purchased).length}
+                {stats.pendingProducts}
               </p>
               <p className="text-sm text-muted-foreground">Pendientes</p>
             </div>
@@ -227,3 +316,4 @@ export function StatsView({ onBack }: StatsViewProps) {
     </div>
   )
 }
+
