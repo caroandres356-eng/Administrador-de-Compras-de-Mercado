@@ -24,7 +24,7 @@ export function ListDetail({ listId, onBack }: ListDetailProps) {
 
   if (!list) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen  flex items-center justify-center">
         <p className="text-muted-foreground">Lista no encontrada</p>
       </div>
     )
@@ -51,7 +51,7 @@ export function ListDetail({ listId, onBack }: ListDetailProps) {
   ]
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen ">
       <motion.header
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
