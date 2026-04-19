@@ -126,3 +126,25 @@ export const formatCOP = (amount: number): string => {
     maximumFractionDigits: 0,
   }).format(amount)
 }
+
+export interface Reminder {
+  id: string
+  title: string
+  description: string
+  dueDate: string
+  read: boolean
+}
+
+export function formatReminderDate(dateStr: string): string {
+  const date = new Date(dateStr + 'T00:00:00')
+  return date.toLocaleDateString('es-CO', { day: 'numeric', month: 'short' })
+}
+
+export function getReminderStatus(dateStr: string): 'past' | 'today' | 'future' {
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  const date = new Date(dateStr + 'T00:00:00')
+  if (date.getTime() === today.getTime()) return 'today'
+  if (date < today) return 'past'
+  return 'future'
+}
