@@ -1,11 +1,17 @@
 package com.market.admin.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
 
     @Id
@@ -22,54 +28,8 @@ public class User {
 
     private String avatar;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) // CascadeType.ALL significa que si se elimina el usuario,
+                                                             // se eliminan todas sus listas de compras
+    @Builder.Default
     private List<ShoppingList> shoppingLists = new ArrayList<>();
-
-    // Constructor vacío requerido por JPA
-    public User() {}
-
-    // Constructor completo
-    public User(Long id, String email, String password, String name, String avatar) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-        this.name = name;
-        this.avatar = avatar;
-    }
-
-    // Builder
-    public static UserBuilder builder() {
-        return new UserBuilder();
-    }
-
-    // Getters y Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public String getAvatar() { return avatar; }
-    public void setAvatar(String avatar) { this.avatar = avatar; }
-    public List<ShoppingList> getShoppingLists() { return shoppingLists; }
-    public void setShoppingLists(List<ShoppingList> shoppingLists) { this.shoppingLists = shoppingLists; }
-
-    // Clase Builder interna
-    public static class UserBuilder {
-        private String email;
-        private String password;
-        private String name;
-        private String avatar;
-
-        public UserBuilder email(String email) { this.email = email; return this; }
-        public UserBuilder password(String password) { this.password = password; return this; }
-        public UserBuilder name(String name) { this.name = name; return this; }
-        public UserBuilder avatar(String avatar) { this.avatar = avatar; return this; }
-
-        public User build() {
-            return new User(null, email, password, name, avatar);
-        }
-    }
 }

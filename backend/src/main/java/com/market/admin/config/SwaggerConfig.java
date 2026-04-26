@@ -13,20 +13,17 @@ public class SwaggerConfig {
 
     @Bean
     public OpenAPI customOpenAPI() {
-        String securitySchemeName = "bearerAuth";
-
         return new OpenAPI()
-                .info(new Info()
-                        .title("Market Admin API")
-                        .version("1.0")
-                        .description("API para el administrador de compras de mercado"))
-                .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
-                .components(new Components()
-                        .addSecuritySchemes(securitySchemeName,
-                                new SecurityScheme()
-                                        .name(securitySchemeName)
-                                        .type(SecurityScheme.Type.HTTP)
-                                        .scheme("bearer")
-                                        .bearerFormat("JWT")));
+            .info(new Info()
+                .title("Administrador de Compras de Mercado")
+                .version("1.0")
+                .description("API REST para gestion de compras"))
+            .addSecurityItem(new SecurityRequirement().addList("bearerAuth"))
+            .components(new Components()
+                .addSecuritySchemes("bearerAuth", new SecurityScheme()
+                    .type(SecurityScheme.Type.HTTP)
+                    .scheme("bearer")
+                    .bearerFormat("JWT")
+                    .description("Pega tu token JWT aqui")));
     }
 }
