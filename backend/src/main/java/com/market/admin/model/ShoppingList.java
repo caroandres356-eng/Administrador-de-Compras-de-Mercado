@@ -1,12 +1,20 @@
 package com.market.admin.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+// Entidad que representa una lista de compras perteneciente a un usuario
 @Entity
 @Table(name = "shopping_lists")
+@Getter  // genera todos los getters automaticamente
+@Setter  // genera todos los setters automaticamente
+@NoArgsConstructor  // genera el constructor sin parametros (requerido por JPA)
+@AllArgsConstructor // genera el constructor con todos los parametros
+@Builder            // permite crear objetos con el patron builder
 public class ShoppingList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,62 +30,22 @@ public class ShoppingList {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    // CascadeType.ALL: si se elimina la lista, se eliminan todos sus productos (orphanRemoval)
     @OneToMany(mappedBy = "shoppingList", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Product> products = new java.util.ArrayList<>();
+    @Builder.Default // necesario para que @Builder inicialice la lista vacia
+    private List<Product> products = new ArrayList<>();
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public ShoppingList() {}
-
-    public ShoppingList(Long id, String name, String emoji, User user) {
-        this.id = id;
-        this.name = name;
-        this.emoji = emoji;
-        this.user = user;
-    }
-
-    public static ShoppingListBuilder builder() {
-        return new ShoppingListBuilder();
-    }
-
-    // Getters and Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public String getEmoji() { return emoji; }
-    public void setEmoji(String emoji) { this.emoji = emoji; }
-    public User getUser() { return user; }
-    public void setUser(User user) { this.user = user; }
-    public List<Product> getProducts() { return products; }
-    public void setProducts(List<Product> products) { this.products = products; }
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
-    public LocalDateTime getUpdatedAt() { return updatedAt; }
-    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
-
-    @PrePersist
+    @PrePersist // se ejecuta automaticamente al insertar en la base de datos
     protected void onCreate() {
         createdAt = LocalDateTime.now();
         updatedAt = LocalDateTime.now();
     }
 
-    @PreUpdate
+    @PreUpdate // se ejecuta automaticamente al actualizar en la base de datos
     protected void onUpdate() {
         updatedAt = LocalDateTime.now();
-    }
-
-    public static class ShoppingListBuilder {
-        private String name;
-        private String emoji;
-        private User user;
-
-        public ShoppingListBuilder name(String name) { this.name = name; return this; }
-        public ShoppingListBuilder emoji(String emoji) { this.emoji = emoji; return this; }
-        public ShoppingListBuilder user(User user) { this.user = user; return this; }
-        public ShoppingList build() {
-            return new ShoppingList(null, name, emoji, user);
-        }
     }
 }

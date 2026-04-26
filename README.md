@@ -113,5 +113,17 @@ El frontend proporciona una interfaz moderna y fluida con animaciones premium.
 
 ---
 
-## 🔒 Seguridad
-La aplicación utiliza **JSON Web Tokens (JWT)** para proteger los endpoints. Cada petición al backend (excepto registro y login) debe incluir el header `Authorization: Bearer <token>`.
+## 🔒 Seguridad y Autenticación (JWT)
+
+Esta aplicación implementa un sistema de seguridad robusto basado en **JSON Web Tokens (JWT)**:
+
+- **Flujo de Autenticación**: Al iniciar sesión, el servidor valida las credenciales contra la base de datos y devuelve un token firmado con una clave secreta.
+- **Persistencia del Token**: El frontend almacena este token y lo adjunta automáticamente en el encabezado `Authorization` de cada petición al backend.
+- **Protección de Endpoints**: Todos los recursos (Listas, Productos, Estadísticas, Recordatorios) están protegidos por el filtro `JwtRequestFilter`. Solo el usuario dueño de la información puede acceder a ella.
+- **Cabecera requerida** en cada petición: `Authorization: Bearer <tu_token_jwt>`
+- **Cifrado de contraseñas**: Se utiliza **BCrypt** para cifrar las contraseñas antes de guardarlas. Nunca se almacena la contraseña en texto plano.
+
+---
+
+## 📄 Notas adicionales
+- Se utiliza **Lombok** en el backend para reducir código repetitivo (Getters, Setters, Builders se generan automáticamente).

@@ -37,6 +37,7 @@ public class AuthService {
 
     /**
      * Registra un nuevo usuario cifrando su contraseña.
+     * 
      * @param user Objeto usuario con los datos de registro.
      * @return El usuario guardado en la base de datos.
      */
@@ -47,25 +48,29 @@ public class AuthService {
 
     /**
      * Autentica a un usuario y genera un token JWT.
-     * @param email Email del usuario.
+     * 
+     * @param email    Email del usuario.
      * @param password Contraseña plana del usuario.
      * @return Mapa con el token y datos básicos del perfil del usuario.
      */
-    public Map<String, Object> login(String email, String password) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
-        final UserDetails userDetails = userDetailsService.loadUserByUsername(email);
-        final String jwt = jwtUtil.generateToken(userDetails);
-        
-        User user = userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("User not found after authentication"));
-        
+    public Map<String, Object> login(String email, String password) {// Metodo para autenticar a un usuario y generar un
+                                                                     // token jwt
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));// Autentica al
+                                                                                                     // usuario
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(email);// Carga los datos del usuario
+        final String jwt = jwtUtil.generateToken(userDetails);// Genera el token jwt
+
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found after authentication"));// Obtiene el usuario de
+                                                                                                // la base de datos
+
         Map<String, Object> response = new HashMap<>();
-        response.put("token", jwt);
+        response.put("token", jwt);// Agrega el token jwt al mapa
         response.put("user", Map.of(
-            "name", user.getName(),
-            "email", user.getEmail(),
-            "avatar", user.getAvatar() != null ? user.getAvatar() : ""
-        ));
-        
+                "name", user.getName(),
+                "email", user.getEmail(),
+                "avatar", user.getAvatar() != null ? user.getAvatar() : ""));// Agrega los datos del usuario al mapa
+
         return response;
     }
 }

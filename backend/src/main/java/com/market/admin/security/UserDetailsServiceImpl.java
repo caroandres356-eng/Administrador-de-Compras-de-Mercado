@@ -10,17 +10,25 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
-@Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+@Service // Indica que esta clase es un servicio de spring
+public class UserDetailsServiceImpl implements UserDetailsService { // Clase que implementa la interfaz
+                                                                    // UserDetailsService
 
-    @Autowired
+    @Autowired // Inyecta el repositorio de usuarios
     private UserRepository userRepository;
 
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    @Override // Sobrescribe el metodo loadUserByUsername de la interfaz UserDetailsService
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException { // Metodo para cargar el
+                                                                                           // usuario por email
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email)); // Lanza una
+                                                                                                          // excepcion
+                                                                                                          // si el
+                                                                                                          // usuario no
+                                                                                                          // es
+                                                                                                          // encontrado
 
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
+                new ArrayList<>()); // Retorna el usuario con sus credenciales y roles
     }
 }
