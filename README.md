@@ -13,8 +13,8 @@ MercaList es una aplicación full-stack diseñada para gestionar listas de compr
 - **Lucide React** (Iconografía)
 
 ### Backend
-- **Java 17**
-- **Spring Boot 3.2+**
+- **Java 21** (LTS)
+- **Spring Boot 3.5.0**
 - **Spring Security** (Autenticación JWT)
 - **Spring Data JPA** (Hibernate)
 - **MySQL** (Base de datos por defecto en desarrollo)
@@ -27,7 +27,7 @@ MercaList es una aplicación full-stack diseñada para gestionar listas de compr
 
 ### Requisitos Previos
 - **Node.js** (v18 o superior)
-- **Java JDK 17**
+- **Java JDK 21**
 - **Maven** (opcional, se puede usar el wrapper `./mvnw`)
 - **MySQL Server** corriendo localmente
 
