@@ -13,8 +13,8 @@ MercaList es una aplicación full-stack diseñada para gestionar listas de compr
 - **Lucide React** (Iconografía)
 
 ### Backend
-- **Java 17**
-- **Spring Boot 3.2+**
+- **Java 21** (LTS)
+- **Spring Boot 3.5.0**
 - **Spring Security** (Autenticación JWT)
 - **Spring Data JPA** (Hibernate)
 - **MySQL** (Base de datos por defecto en desarrollo)
@@ -27,7 +27,7 @@ MercaList es una aplicación full-stack diseñada para gestionar listas de compr
 
 ### Requisitos Previos
 - **Node.js** (v18 o superior)
-- **Java JDK 17**
+- **Java JDK 21**
 - **Maven** (opcional, se puede usar el wrapper `./mvnw`)
 - **MySQL Server** corriendo localmente
 
@@ -127,3 +127,20 @@ Esta aplicación implementa un sistema de seguridad robusto basado en **JSON Web
 
 ## 📄 Notas adicionales
 - Se utiliza **Lombok** en el backend para reducir código repetitivo (Getters, Setters, Builders se generan automáticamente).
+
+---
+
+## 📚 Documentación Técnica (JavaDoc)
+
+El backend cuenta con documentación técnica detallada (JavaDoc) de todas sus clases, métodos y atributos. Para generarla y consultarla, sigue estos pasos:
+
+1. Abre tu terminal y navega hasta el directorio del backend:
+   ```bash
+   cd backend
+   ```
+2. Ejecuta el comando de Maven para generar la documentación:
+   ```bash
+   mvn javadoc:javadoc
+   ```
+3. Una vez finalizado el proceso, la documentación HTML estará disponible localmente. Puedes acceder a ella abriendo el siguiente archivo en tu navegador web:
+   `backend\target\reports\apidocs\index.html` (o `backend\target\site\apidocs\index.html` dependiendo de la versión del plugin).

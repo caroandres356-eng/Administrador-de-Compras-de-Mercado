@@ -1,81 +1,127 @@
+/**
+ * Paquete para la capa de servicios, donde reside la lógica de negocio.
+ */
 package com.market.admin.service;
 
+// Importaciones de modelos y repositorios
 import com.market.admin.model.Reminder;
 import com.market.admin.model.User;
 import com.market.admin.repository.ReminderRepository;
 import com.market.admin.repository.UserRepository;
+// Importaciones de Spring Framework
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+// Importaciones utilitarias
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
-@Service // Indica que esta clase es un servicio de spring
+/**
+ * Servicio encargado de gestionar los recordatorios de compras.
+ * Proporciona métodos para consultar, crear, marcar como leídos y eliminar recordatorios.
+ */
+@Service // Indica que esta clase es un servicio gestionado por Spring
 public class ReminderService { // Clase que se encarga de la gestión de recordatorios
 
     @Autowired // Inyecta el repositorio de recordatorios
     private ReminderRepository reminderRepository;
 
-    @Autowired
+    @Autowired // Inyecta el repositorio de usuarios
     private UserRepository userRepository;
 
+    /**
+     * Obtiene la lista completa de recordatorios de un usuario, ordenados por fecha.
+     * 
+     * @param email Correo electrónico del usuario autenticado.
+     * @return Lista de recordatorios del usuario.
+     */
     public List<Reminder> getRemindersByUser(String email) { // Obtiene los recordatorios del usuario
+        // Busca al usuario en la BD
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado")); // Lanza una excepcion si el usuario
-                                                                                   // no es encontrado
-        return reminderRepository.findByUserOrderByDueDateAsc(user); // Retorna los recordatorios ordenados por fecha de
-                                                                     // vencimiento
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado")); // Lanza una excepcion si no existe
+        
+        // Retorna los recordatorios ordenados por fecha de vencimiento de más cercano a más lejano
+        return reminderRepository.findByUserOrderByDueDateAsc(user); 
     }
 
-    public long getUnreadCount(String email) {// Obtiene el numero de recordatorios no leidos
+    /**
+     * Obtiene el número total de recordatorios que no han sido leídos.
+     * 
+     * @param email Correo electrónico del usuario.
+     * @return Conteo de recordatorios no leídos.
+     */
+    public long getUnreadCount(String email) { // Obtiene el numero de recordatorios no leidos
+        // Busca al usuario
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado")); // Lanza una excepcion si el usuario
-                                                                                   // no es encontrado
-        return reminderRepository.countByUserAndReadFalse(user); // Retorna el numero de recordatorios no leidos
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado")); 
+        
+        // Retorna el número de recordatorios no leídos
+        return reminderRepository.countByUserAndReadFalse(user); 
     }
 
-    public Reminder createReminder(String email, Map<String, String> data) {// Crea un nuevo recordatorio
+    /**
+     * Crea y persiste un nuevo recordatorio asociado al usuario.
+     * 
+     * @param email Correo electrónico del usuario autenticado.
+     * @param data Mapa de datos enviados desde el frontend (title, description, dueDate).
+     * @return El objeto Reminder creado.
+     */
+    public Reminder createReminder(String email, Map<String, String> data) { // Crea un nuevo recordatorio
+        // Busca al usuario propietario
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado")); // Lanza una excepcion si el usuario
-                                                                                   // no es encontrado
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado")); 
 
-        Reminder reminder = new Reminder(); // Crea un nuevo recordatorio
-        reminder.setTitle(data.get("title")); // Obtiene el titulo del recordatorio
-        reminder.setDescription(data.getOrDefault("description", "")); // Obtiene la descripcion del recordatorio
-        reminder.setDueDate(LocalDate.parse(data.get("dueDate"))); // Obtiene la fecha de vencimiento del recordatorio
-        reminder.setRead(false); // El recordatorio no ha sido leido
-        reminder.setUser(user); // Asigna el usuario al recordatorio
+        Reminder reminder = new Reminder(); // Crea un nuevo objeto recordatorio
+        reminder.setTitle(data.get("title")); // Establece el titulo
+        reminder.setDescription(data.getOrDefault("description", "")); // Establece la descripcion o vacio por defecto
+        reminder.setDueDate(LocalDate.parse(data.get("dueDate"))); // Parsea y establece la fecha de vencimiento
+        reminder.setRead(false); // Inicializa como no leido
+        reminder.setUser(user); // Vincula al usuario
 
-        return reminderRepository.save(reminder); // Guarda el recordatorio
+        return reminderRepository.save(reminder); // Guarda y retorna el recordatorio
     }
 
-    public void markAsRead(String email, Long reminderId) {// Marca un recordatorio como leido
+    /**
+     * Marca un recordatorio específico como leído.
+     * 
+     * @param email Correo del usuario autenticado (para validación de permisos).
+     * @param reminderId ID del recordatorio a actualizar.
+     */
+    public void markAsRead(String email, Long reminderId) { // Marca un recordatorio como leido
+        // Busca al usuario
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado")); // Lanza una excepcion si el usuario
-                                                                                   // no es encontrado
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado")); 
 
+        // Busca el recordatorio
         Reminder reminder = reminderRepository.findById(reminderId)
-                .orElseThrow(() -> new RuntimeException("Recordatorio no encontrado")); // Lanza una excepcion si el
-                                                                                        // recordatorio no es encontrado
+                .orElseThrow(() -> new RuntimeException("Recordatorio no encontrado")); 
 
-        if (reminder.getUser().getId().equals(user.getId())) { // Verifica que el recordatorio pertenezca al usuario
-            reminder.setRead(true); // Marca el recordatorio como leido
-            reminderRepository.save(reminder); // Guarda el recordatorio
+        // Verifica que el recordatorio efectivamente pertenezca al usuario que lo intenta marcar
+        if (reminder.getUser().getId().equals(user.getId())) { 
+            reminder.setRead(true); // Actualiza estado
+            reminderRepository.save(reminder); // Guarda cambios
         }
     }
 
+    /**
+     * Elimina un recordatorio de la base de datos.
+     * 
+     * @param email Correo del usuario autenticado.
+     * @param reminderId ID del recordatorio a eliminar.
+     */
     public void deleteReminder(String email, Long reminderId) { // Elimina un recordatorio
+        // Busca al usuario
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado")); // Lanza una excepcion si el usuario
-                                                                                   // no es encontrado
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado")); 
 
+        // Busca el recordatorio
         Reminder reminder = reminderRepository.findById(reminderId)
-                .orElseThrow(() -> new RuntimeException("Recordatorio no encontrado")); // Lanza una excepcion si el
-                                                                                        // recordatorio no es encontrado
+                .orElseThrow(() -> new RuntimeException("Recordatorio no encontrado")); 
 
+        // Verifica permisos para borrar
         if (reminder.getUser().getId().equals(user.getId())) {
-            reminderRepository.delete(reminder);
+            reminderRepository.delete(reminder); // Elimina de DB
         }
     }
 }
