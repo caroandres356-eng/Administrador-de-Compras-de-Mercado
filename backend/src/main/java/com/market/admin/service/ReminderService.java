@@ -10,7 +10,9 @@ import com.market.admin.repository.ReminderRepository;
 import com.market.admin.repository.UserRepository;
 // Importaciones de Spring Framework
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 // Importaciones utilitarias
 import java.time.LocalDate;
@@ -39,7 +41,7 @@ public class ReminderService { // Clase que se encarga de la gestión de recorda
     public List<Reminder> getRemindersByUser(String email) { // Obtiene los recordatorios del usuario
         // Busca al usuario en la BD
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado")); // Lanza una excepcion si no existe
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado"));
         
         // Retorna los recordatorios ordenados por fecha de vencimiento de más cercano a más lejano
         return reminderRepository.findByUserOrderByDueDateAsc(user); 
@@ -54,7 +56,7 @@ public class ReminderService { // Clase que se encarga de la gestión de recorda
     public long getUnreadCount(String email) { // Obtiene el numero de recordatorios no leidos
         // Busca al usuario
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado")); 
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado")); 
         
         // Retorna el número de recordatorios no leídos
         return reminderRepository.countByUserAndReadFalse(user); 
@@ -70,7 +72,7 @@ public class ReminderService { // Clase que se encarga de la gestión de recorda
     public Reminder createReminder(String email, Map<String, String> data) { // Crea un nuevo recordatorio
         // Busca al usuario propietario
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado")); 
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado")); 
 
         Reminder reminder = new Reminder(); // Crea un nuevo objeto recordatorio
         reminder.setTitle(data.get("title")); // Establece el titulo
@@ -91,11 +93,11 @@ public class ReminderService { // Clase que se encarga de la gestión de recorda
     public void markAsRead(String email, Long reminderId) { // Marca un recordatorio como leido
         // Busca al usuario
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado")); 
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado")); 
 
         // Busca el recordatorio
         Reminder reminder = reminderRepository.findById(reminderId)
-                .orElseThrow(() -> new RuntimeException("Recordatorio no encontrado")); 
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Recordatorio no encontrado")); 
 
         // Verifica que el recordatorio efectivamente pertenezca al usuario que lo intenta marcar
         if (reminder.getUser().getId().equals(user.getId())) { 
@@ -113,11 +115,11 @@ public class ReminderService { // Clase que se encarga de la gestión de recorda
     public void deleteReminder(String email, Long reminderId) { // Elimina un recordatorio
         // Busca al usuario
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado")); 
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado")); 
 
         // Busca el recordatorio
         Reminder reminder = reminderRepository.findById(reminderId)
-                .orElseThrow(() -> new RuntimeException("Recordatorio no encontrado")); 
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Recordatorio no encontrado")); 
 
         // Verifica permisos para borrar
         if (reminder.getUser().getId().equals(user.getId())) {

@@ -1,6 +1,10 @@
 # Environment variables
 .env*.local
 
+# IDE config
+.vscode/
+.idea/
+
 # Common ignores
 node_modules/
 .next/
@@ -23,3 +27,8 @@ frontend/node_modules/
 frontend/.env*.local
 frontend/dist/
 frontend/build/
+
+# Test output / generated files (not test definitions)
+test/jmeter/*.log
+test/jmeter/*.jtl
+test/reports/

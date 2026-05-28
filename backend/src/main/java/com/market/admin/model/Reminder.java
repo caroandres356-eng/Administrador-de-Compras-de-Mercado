@@ -7,6 +7,7 @@ package com.market.admin.model;
 import jakarta.persistence.*;
 // Importaciones de Lombok
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 // Importaciones de utilidades Java
@@ -21,6 +22,7 @@ import java.time.LocalDate;
 @Data // genera getters, setters, equals, hashCode y toString
 @NoArgsConstructor // Constructor sin parametros, necesario para JPA
 @AllArgsConstructor // Constructor con todos los parametros
+@Builder
 public class Reminder {
     
     /** Identificador único autoincremental del recordatorio. */
@@ -40,6 +42,7 @@ public class Reminder {
 
     /** Estado del recordatorio, indicando si ya ha sido leído/visualizado por el usuario. */
     @Column(name = "is_read")
+    @Builder.Default
     private boolean read = false; // indica si el recordatorio ha sido leido
 
     /** Relación Muchos a Uno con el usuario propietario del recordatorio. */

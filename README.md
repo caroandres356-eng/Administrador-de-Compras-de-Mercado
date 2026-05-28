@@ -109,6 +109,14 @@ El frontend proporciona una interfaz moderna y fluida con animaciones premium.
 │   ├── components/         # Componentes de UI
 │   ├── lib/                # Contexto y lógica de API
 │   └── app/                # Páginas y layout principal
+├── test/                   # Pruebas de API y herramientas
+│   ├── jmeter/             # Planes de carga JMeter
+│   ├── postman/            # Colecciones Postman
+│   ├── newman/             # Reportes de Newman (Postman CLI)
+│   ├── python/             # Scripts de prueba Python
+│   ├── reports/            # Reportes generados (PDFs, etc.)
+│   └── utils/              # Utilidades (formateo de reportes)
+└── docs/                   # Documentación (PDFs de prácticas, etc.)
 ```
 
 ---

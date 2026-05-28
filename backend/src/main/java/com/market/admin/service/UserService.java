@@ -8,7 +8,9 @@ import com.market.admin.model.User;
 import com.market.admin.repository.UserRepository;
 // Importaciones de Spring Framework
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 // Importaciones utilitarias
 import java.util.Map;
@@ -35,7 +37,7 @@ public class UserService {
         
         // Busca el usuario por email
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado"));
 
         // Verifica que el body contenga un nombre y que no esté vacío antes de actualizarlo
         if (body.containsKey("name") && !body.get("name").isBlank()) {
