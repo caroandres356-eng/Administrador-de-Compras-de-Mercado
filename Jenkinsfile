@@ -1,12 +1,27 @@
 pipeline {
     agent any
+
+    parameters {
+        string(name: 'BRANCH', defaultValue: 'main', description: 'Branch a desplegar')
+        string(name: 'DB_PASS', defaultValue: '', description: 'Contraseña de MariaDB')
+    }
+
+    environment {
+        DOCKER_IMAGE = 'market-admin'
+        DOCKER_TAG = "${BUILD_NUMBER}"
+    }
+
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'feature_julian',
-                    url: 'https://github.com/caroandres356-eng/Administrador-de-Compras-de-Mercado.git'
+                checkout scm: [
+                    $class: 'GitSCM',
+                    branches: [[name: "${params.BRANCH}"]],
+                    userRemoteConfigs: [[url: 'https://github.com/caroandres356-eng/Administrador-de-Compras-de-Mercado.git']]
+                ]
             }
         }
+
         stage('Build') {
             steps {
                 dir('backend') {
@@ -14,33 +29,39 @@ pipeline {
                 }
             }
         }
+
         stage('Test') {
             steps {
                 dir('backend') {
-                    withEnv(['DB_PASS=Pipesofi2006']) {
-                        sh 'mvn test'
-                    }
+                    sh 'mvn test -DDB_PASS=${DB_PASS}'
                 }
             }
         }
+
         stage('Docker Build') {
             steps {
-                sh 'docker build -t market-admin:latest ./backend'
+                sh 'docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ./backend'
+                sh 'docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:latest'
             }
         }
+
         stage('Docker Compose Up') {
             steps {
-                sh 'docker compose down || true'
-                sh 'docker compose up -d'
+                sh 'DB_PASS=${DB_PASS} docker compose down -v || true'
+                sh 'DB_PASS=${DB_PASS} docker compose up -d'
             }
         }
     }
+
     post {
         success {
-            echo 'Pipeline ejecutado exitosamente'
+            echo "Pipeline ejecutado exitosamente — ${DOCKER_IMAGE}:${DOCKER_TAG}"
         }
         failure {
-            echo 'Pipeline falló'
+            echo 'Pipeline falló. Revisar los logs.'
+        }
+        always {
+            cleanWs()
         }
     }
 }

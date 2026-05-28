@@ -27,42 +27,75 @@ MercaList es una aplicación full-stack diseñada para gestionar listas de compr
 
 ### Requisitos Previos
 - **Node.js** (v18 o superior)
-- **Java JDK 21**
-- **Maven** (opcional, se puede usar el wrapper `./mvnw`)
-- **MySQL Server** corriendo localmente
+- **Java JDK 17+**
+- **Maven** (incluido en el wrapper `./mvnw`)
+- **MariaDB 11+** — dos opciones:
 
 ---
 
-### 1. Configuración del Backend (Spring Boot)
+### Opción A: MariaDB nativo (recomendado si ya lo tenés instalado)
 
-El backend maneja la autenticación, persistencia de datos (MySQL) y lógica de negocio.
+```bash
+# Asegurate de que MariaDB esté corriendo
+sudo systemctl start mariadb
 
-**Requisitos MySQL:**
-1. Asegúrate de tener un servidor MySQL corriendo.
-2. Crea una base de datos llamada `mercalist_db`.
+# Crear la base de datos (si no existe)
+mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS mercalist_db"
+```
 
-**Configuración de Variables de Entorno (Recomendado):**
-Para evitar subir contraseñas al código, el proyecto usa variables de entorno en el perfil `dev`. Configura las siguientes variables en tu sistema o IDE para que coincidan con tu MySQL local:
-- `DB_NAME`: Nombre de tu base de datos (por defecto: `mercalist_db`).
-- `DB_USER`: Tu usuario de MySQL (por defecto: `root`).
-- `DB_PASS`: Tu contraseña de MySQL (por defecto: vacía).
+### Opción B: MariaDB en Docker (no requiere instalación local)
 
-*Si prefieres usar H2 (en memoria), cambia `spring.profiles.active=dev` a `default` en `backend/src/main/resources/application.properties`.*
+```bash
+# Levantar MariaDB en puerto 3307 (evita conflictos con MariaDB nativo)
+DB_PASS=Pipesofi2006 docker compose -f docker-compose.dev.yml up -d
 
-**Ejecución:**
-1. Navega al directorio del backend:
-   ```bash
-   cd backend
-   ```
-2. Ejecuta el proyecto:
-   ```bash
-   mvn spring-boot:run
-   ```
-3. El servidor iniciará en: `http://localhost:8080`
+# Si querés cambiar el puerto (ej. 3306):
+DB_PORT=3306 DB_PASS=Pipesofi2006 docker compose -f docker-compose.dev.yml up -d
+```
 
 ---
 
-### 2. Configuración del Frontend (Next.js)
+### 1. Configurar variables de entorno
+
+El proyecto lee la configuración de BD desde variables de entorno. Copiá el template y ajustalo:
+
+```bash
+cp .env.example .env
+# Editá .env si tu contraseña es distinta a Pipesofi2006
+```
+
+O exportalas directamente en tu shell:
+
+```bash
+export DB_PASS=tu_contraseña
+```
+
+**Variables disponibles:**
+
+| Variable    | Default               | Descripción                        |
+|-------------|-----------------------|------------------------------------|
+| `DB_HOST`   | `127.0.0.1`           | Host de MariaDB                    |
+| `DB_PORT`   | `3306`                | Puerto de MariaDB                  |
+| `DB_NAME`   | `mercalist_db`        | Nombre de la base de datos         |
+| `DB_USER`   | `root`                | Usuario de MariaDB                 |
+| `DB_PASS`   | `Pipesofi2006`        | Contraseña de MariaDB              |
+
+---
+
+### 2. Ejecutar el Backend
+
+```bash
+cd backend
+mvn spring-boot:run
+```
+
+El servidor inicia en `http://localhost:8080`.
+
+> **⚠️ Puerto 8080 ocupado?** Si Jenkins u otro servicio lo usa, matalo con `fuser -k 8080/tcp` o cambiá el puerto con `SERVER_PORT=8081 mvn spring-boot:run`.
+
+---
+
+### 3. Configuración del Frontend (Next.js)
 
 El frontend proporciona una interfaz moderna y fluida con animaciones premium.
 
