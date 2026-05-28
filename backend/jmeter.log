@@ -1,0 +1,738 @@
+2026-05-28 14:55:16,965 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2026-05-28 14:55:16,979 INFO o.a.j.JMeter: Loading user properties from: /home/Pipe/.local/share/apache-jmeter-5.6.3/bin/user.properties
+2026-05-28 14:55:16,979 INFO o.a.j.JMeter: Loading system properties from: /home/Pipe/.local/share/apache-jmeter-5.6.3/bin/system.properties
+2026-05-28 14:55:16,983 INFO o.a.j.JMeter: Copyright (c) 1998-2024 The Apache Software Foundation
+2026-05-28 14:55:16,983 INFO o.a.j.JMeter: Version 5.6.3
+2026-05-28 14:55:16,983 INFO o.a.j.JMeter: java.version=17.0.19
+2026-05-28 14:55:16,983 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2026-05-28 14:55:16,983 INFO o.a.j.JMeter: os.name=Linux
+2026-05-28 14:55:16,983 INFO o.a.j.JMeter: os.arch=amd64
+2026-05-28 14:55:16,983 INFO o.a.j.JMeter: os.version=7.0.3-arch1-2
+2026-05-28 14:55:16,983 INFO o.a.j.JMeter: file.encoding=ANSI_X3.4-1968
+2026-05-28 14:55:16,984 INFO o.a.j.JMeter: java.awt.headless=null
+2026-05-28 14:55:16,984 INFO o.a.j.JMeter: Max memory     =1073741824
+2026-05-28 14:55:16,984 INFO o.a.j.JMeter: Available Processors =12
+2026-05-28 14:55:16,991 INFO o.a.j.JMeter: Default Locale=English (EN)
+2026-05-28 14:55:16,991 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2026-05-28 14:55:16,991 INFO o.a.j.JMeter: JMeterHome=/home/Pipe/.local/share/apache-jmeter-5.6.3
+2026-05-28 14:55:16,991 INFO o.a.j.JMeter: user.dir  =/home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/backend
+2026-05-28 14:55:16,991 INFO o.a.j.JMeter: PWD       =/home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/backend
+2026-05-28 14:55:16,991 INFO o.a.j.JMeter: IP: 10.195.49.147 Name: archlinux FullName: archlinux
+2026-05-28 14:55:17,001 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2026-05-28 14:55:17,179 INFO o.a.j.JMeterGuiLauncher: Setting LAF to: com.github.weisj.darklaf.DarkLaf:com.github.weisj.darklaf.theme.DarculaTheme
+2026-05-28 14:56:07,907 INFO o.a.j.s.FileServer: Default base='/home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/backend'
+2026-05-28 14:56:07,909 INFO o.a.j.g.a.Load: Loading file: /home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/test/jmeter/MercaList-Carga-Completa.jmx
+2026-05-28 14:56:07,909 INFO o.a.j.s.FileServer: Set new base='/home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/test/jmeter'
+2026-05-28 14:56:08,028 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2026-05-28 14:56:08,032 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2026-05-28 14:56:08,033 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2026-05-28 14:56:08,034 INFO o.a.j.s.SaveService: Loading file: /home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/test/jmeter/MercaList-Carga-Completa.jmx
+2026-05-28 14:56:08,049 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-05-28 14:56:08,049 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-05-28 14:56:08,049 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-05-28 14:56:08,049 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-05-28 14:56:08,049 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2026-05-28 14:56:08,049 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2026-05-28 14:56:08,437 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2026-05-28 14:56:08,438 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to UTF-8
+2026-05-28 14:56:08,438 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2026-05-28 14:56:08,438 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2026-05-28 14:56:08,540 INFO o.a.j.s.FileServer: Set new base='/home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/test/jmeter'
+2026-05-28 14:56:15,643 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2026-05-28 14:56:15,644 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-05-28 14:56:15,644 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-05-28 14:56:15,644 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2026-05-28 14:56:15,644 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2026-05-28 14:56:15,661 INFO o.a.j.r.ResultCollector: Folder at /home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/backend/test/jmeter was created
+2026-05-28 14:56:15,674 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2026-05-28 14:56:15,676 INFO o.a.j.e.StandardJMeterEngine: Starting setUp thread groups
+2026-05-28 14:56:15,676 INFO o.a.j.e.StandardJMeterEngine: Starting setUp ThreadGroup: 1 : Set Up - Registrar usuario 
+2026-05-28 14:56:15,676 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Set Up - Registrar usuario.
+2026-05-28 14:56:15,676 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-05-28 14:56:15,677 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2026-05-28 14:56:15,680 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-05-28 14:56:15,680 INFO o.a.j.e.StandardJMeterEngine: Waiting for all setup thread groups to exit
+2026-05-28 14:56:15,680 INFO o.a.j.t.JMeterThread: Thread started: Set Up - Registrar usuario 1-1
+2026-05-28 14:56:15,697 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = archlinux
+2026-05-28 14:56:15,702 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2026-05-28 14:56:15,743 INFO o.a.j.t.JMeterThread: Thread is done: Set Up - Registrar usuario 1-1
+2026-05-28 14:56:15,743 INFO o.a.j.t.JMeterThread: Thread finished: Set Up - Registrar usuario 1-1
+2026-05-28 14:56:15,743 INFO o.a.j.e.StandardJMeterEngine: All Setup Threads have ended
+2026-05-28 14:56:15,767 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Usuarios Concurrentes (50)
+2026-05-28 14:56:15,768 INFO o.a.j.e.StandardJMeterEngine: Starting 50 threads for group Usuarios Concurrentes (50).
+2026-05-28 14:56:15,768 INFO o.a.j.e.StandardJMeterEngine: Thread will start next loop on error
+2026-05-28 14:56:15,768 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=50 ramp-up=5 delayedStart=false
+2026-05-28 14:56:15,770 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-1
+2026-05-28 14:56:15,806 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-05-28 14:56:15,806 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2026-05-28 14:56:15,871 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-2
+2026-05-28 14:56:15,970 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-3
+2026-05-28 14:56:16,070 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-4
+2026-05-28 14:56:16,170 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-5
+2026-05-28 14:56:16,270 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-6
+2026-05-28 14:56:16,371 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-7
+2026-05-28 14:56:16,471 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-8
+2026-05-28 14:56:16,569 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-9
+2026-05-28 14:56:16,669 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-10
+2026-05-28 14:56:16,770 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-11
+2026-05-28 14:56:16,870 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-12
+2026-05-28 14:56:16,969 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-13
+2026-05-28 14:56:17,069 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-14
+2026-05-28 14:56:17,169 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-15
+2026-05-28 14:56:17,270 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-16
+2026-05-28 14:56:17,406 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-17
+2026-05-28 14:56:17,470 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-18
+2026-05-28 14:56:17,570 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-19
+2026-05-28 14:56:17,671 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-20
+2026-05-28 14:56:17,770 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-21
+2026-05-28 14:56:17,870 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-22
+2026-05-28 14:56:17,971 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-23
+2026-05-28 14:56:18,070 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-24
+2026-05-28 14:56:18,169 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-25
+2026-05-28 14:56:18,270 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-26
+2026-05-28 14:56:18,369 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-27
+2026-05-28 14:56:18,469 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-28
+2026-05-28 14:56:18,570 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-29
+2026-05-28 14:56:18,668 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-30
+2026-05-28 14:56:18,770 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-31
+2026-05-28 14:56:18,869 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-32
+2026-05-28 14:56:18,969 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-33
+2026-05-28 14:56:19,069 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-34
+2026-05-28 14:56:19,170 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-35
+2026-05-28 14:56:19,269 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-36
+2026-05-28 14:56:19,370 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-37
+2026-05-28 14:56:19,469 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-38
+2026-05-28 14:56:19,573 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-39
+2026-05-28 14:56:19,670 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-40
+2026-05-28 14:56:19,770 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-41
+2026-05-28 14:56:19,869 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-42
+2026-05-28 14:56:19,970 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-43
+2026-05-28 14:56:20,069 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-44
+2026-05-28 14:56:20,168 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-45
+2026-05-28 14:56:20,269 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-46
+2026-05-28 14:56:20,369 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-47
+2026-05-28 14:56:20,469 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-48
+2026-05-28 14:56:20,569 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-49
+2026-05-28 14:56:20,670 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-50
+2026-05-28 14:56:20,705 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-9
+2026-05-28 14:56:20,705 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-9
+2026-05-28 14:56:21,195 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-8
+2026-05-28 14:56:21,195 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-8
+2026-05-28 14:56:21,557 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-11
+2026-05-28 14:56:21,558 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-11
+2026-05-28 14:56:21,653 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-4
+2026-05-28 14:56:21,653 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-4
+2026-05-28 14:56:21,779 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-12
+2026-05-28 14:56:21,779 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-12
+2026-05-28 14:56:22,182 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-7
+2026-05-28 14:56:22,183 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-7
+2026-05-28 14:56:22,611 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-16
+2026-05-28 14:56:22,612 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-16
+2026-05-28 14:56:22,621 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-5
+2026-05-28 14:56:22,621 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-5
+2026-05-28 14:56:22,694 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-1
+2026-05-28 14:56:22,694 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-1
+2026-05-28 14:56:22,711 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-6
+2026-05-28 14:56:22,711 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-6
+2026-05-28 14:56:22,849 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-21
+2026-05-28 14:56:22,849 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-21
+2026-05-28 14:56:22,929 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-3
+2026-05-28 14:56:22,930 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-3
+2026-05-28 14:56:23,066 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-2
+2026-05-28 14:56:23,066 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-2
+2026-05-28 14:56:23,129 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-22
+2026-05-28 14:56:23,130 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-22
+2026-05-28 14:56:23,347 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-10
+2026-05-28 14:56:23,348 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-10
+2026-05-28 14:56:23,626 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-19
+2026-05-28 14:56:23,626 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-19
+2026-05-28 14:56:23,627 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-20
+2026-05-28 14:56:23,627 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-20
+2026-05-28 14:56:23,796 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-13
+2026-05-28 14:56:23,796 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-13
+2026-05-28 14:56:23,866 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-14
+2026-05-28 14:56:23,866 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-14
+2026-05-28 14:56:24,083 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-28
+2026-05-28 14:56:24,083 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-28
+2026-05-28 14:56:24,191 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-15
+2026-05-28 14:56:24,191 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-15
+2026-05-28 14:56:24,243 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-23
+2026-05-28 14:56:24,243 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-23
+2026-05-28 14:56:24,245 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-26
+2026-05-28 14:56:24,245 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-26
+2026-05-28 14:56:24,277 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-18
+2026-05-28 14:56:24,277 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-18
+2026-05-28 14:56:24,461 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-17
+2026-05-28 14:56:24,461 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-17
+2026-05-28 14:56:24,635 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-25
+2026-05-28 14:56:24,635 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-25
+2026-05-28 14:56:24,660 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-33
+2026-05-28 14:56:24,660 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-33
+2026-05-28 14:56:24,683 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-31
+2026-05-28 14:56:24,683 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-31
+2026-05-28 14:56:24,683 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-24
+2026-05-28 14:56:24,684 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-24
+2026-05-28 14:56:24,850 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-29
+2026-05-28 14:56:24,850 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-29
+2026-05-28 14:56:24,915 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-38
+2026-05-28 14:56:24,915 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-38
+2026-05-28 14:56:24,925 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-27
+2026-05-28 14:56:24,925 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-27
+2026-05-28 14:56:24,962 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-46
+2026-05-28 14:56:24,962 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-46
+2026-05-28 14:56:25,005 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-44
+2026-05-28 14:56:25,005 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-44
+2026-05-28 14:56:25,036 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-35
+2026-05-28 14:56:25,037 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-35
+2026-05-28 14:56:25,068 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-30
+2026-05-28 14:56:25,069 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-30
+2026-05-28 14:56:25,094 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-34
+2026-05-28 14:56:25,094 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-34
+2026-05-28 14:56:25,111 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-37
+2026-05-28 14:56:25,111 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-37
+2026-05-28 14:56:25,121 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-32
+2026-05-28 14:56:25,121 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-32
+2026-05-28 14:56:25,152 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-50
+2026-05-28 14:56:25,152 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-50
+2026-05-28 14:56:25,159 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-36
+2026-05-28 14:56:25,159 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-36
+2026-05-28 14:56:25,181 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-39
+2026-05-28 14:56:25,181 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-43
+2026-05-28 14:56:25,181 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-39
+2026-05-28 14:56:25,181 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-43
+2026-05-28 14:56:25,190 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-42
+2026-05-28 14:56:25,190 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-42
+2026-05-28 14:56:25,193 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-41
+2026-05-28 14:56:25,194 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-41
+2026-05-28 14:56:25,217 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-40
+2026-05-28 14:56:25,217 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-40
+2026-05-28 14:56:25,224 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-48
+2026-05-28 14:56:25,225 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-48
+2026-05-28 14:56:25,244 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-45
+2026-05-28 14:56:25,244 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-47
+2026-05-28 14:56:25,245 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-47
+2026-05-28 14:56:25,245 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-45
+2026-05-28 14:56:25,272 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-49
+2026-05-28 14:56:25,273 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-49
+2026-05-28 14:56:25,273 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2026-05-28 14:56:25,276 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2026-05-28 14:56:48,939 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2026-05-28 14:56:48,940 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-05-28 14:56:48,941 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2026-05-28 14:56:48,941 INFO o.a.j.e.StandardJMeterEngine: Starting setUp thread groups
+2026-05-28 14:56:48,941 INFO o.a.j.e.StandardJMeterEngine: Starting setUp ThreadGroup: 1 : Set Up - Registrar usuario 
+2026-05-28 14:56:48,941 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Set Up - Registrar usuario.
+2026-05-28 14:56:48,941 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-05-28 14:56:48,941 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2026-05-28 14:56:48,942 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-05-28 14:56:48,942 INFO o.a.j.e.StandardJMeterEngine: Waiting for all setup thread groups to exit
+2026-05-28 14:56:48,942 INFO o.a.j.t.JMeterThread: Thread started: Set Up - Registrar usuario 1-1
+2026-05-28 14:56:48,943 INFO o.a.j.t.JMeterThread: Thread is done: Set Up - Registrar usuario 1-1
+2026-05-28 14:56:48,943 INFO o.a.j.t.JMeterThread: Thread finished: Set Up - Registrar usuario 1-1
+2026-05-28 14:56:48,944 INFO o.a.j.e.StandardJMeterEngine: All Setup Threads have ended
+2026-05-28 14:56:48,974 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Usuarios Concurrentes (50)
+2026-05-28 14:56:48,974 INFO o.a.j.e.StandardJMeterEngine: Starting 50 threads for group Usuarios Concurrentes (50).
+2026-05-28 14:56:48,974 INFO o.a.j.e.StandardJMeterEngine: Thread will start next loop on error
+2026-05-28 14:56:48,974 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=50 ramp-up=5 delayedStart=false
+2026-05-28 14:56:48,975 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-1
+2026-05-28 14:56:48,992 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-05-28 14:56:48,992 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2026-05-28 14:56:49,075 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-2
+2026-05-28 14:56:49,175 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-3
+2026-05-28 14:56:49,275 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-4
+2026-05-28 14:56:49,374 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-5
+2026-05-28 14:56:49,474 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-6
+2026-05-28 14:56:49,575 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-7
+2026-05-28 14:56:49,675 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-8
+2026-05-28 14:56:49,776 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-9
+2026-05-28 14:56:49,875 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-10
+2026-05-28 14:56:49,975 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-11
+2026-05-28 14:56:50,076 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-12
+2026-05-28 14:56:50,176 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-13
+2026-05-28 14:56:50,215 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-1
+2026-05-28 14:56:50,215 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-1
+2026-05-28 14:56:50,276 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-14
+2026-05-28 14:56:50,346 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-2
+2026-05-28 14:56:50,346 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-2
+2026-05-28 14:56:50,375 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-15
+2026-05-28 14:56:50,437 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-3
+2026-05-28 14:56:50,437 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-3
+2026-05-28 14:56:50,475 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-16
+2026-05-28 14:56:50,575 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-17
+2026-05-28 14:56:50,649 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-4
+2026-05-28 14:56:50,649 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-4
+2026-05-28 14:56:50,676 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-18
+2026-05-28 14:56:50,724 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-5
+2026-05-28 14:56:50,726 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-5
+2026-05-28 14:56:50,776 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-19
+2026-05-28 14:56:50,849 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-6
+2026-05-28 14:56:50,850 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-6
+2026-05-28 14:56:50,875 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-20
+2026-05-28 14:56:50,977 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-21
+2026-05-28 14:56:51,076 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-22
+2026-05-28 14:56:51,113 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-7
+2026-05-28 14:56:51,114 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-7
+2026-05-28 14:56:51,176 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-23
+2026-05-28 14:56:51,274 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-24
+2026-05-28 14:56:51,320 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-10
+2026-05-28 14:56:51,320 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-10
+2026-05-28 14:56:51,342 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-8
+2026-05-28 14:56:51,342 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-8
+2026-05-28 14:56:51,375 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-25
+2026-05-28 14:56:51,442 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-9
+2026-05-28 14:56:51,442 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-9
+2026-05-28 14:56:51,476 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-26
+2026-05-28 14:56:51,565 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-12
+2026-05-28 14:56:51,565 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-12
+2026-05-28 14:56:51,575 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-27
+2026-05-28 14:56:51,673 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-11
+2026-05-28 14:56:51,673 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-11
+2026-05-28 14:56:51,675 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-28
+2026-05-28 14:56:51,775 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-29
+2026-05-28 14:56:51,788 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-14
+2026-05-28 14:56:51,789 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-14
+2026-05-28 14:56:51,875 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-30
+2026-05-28 14:56:51,906 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-13
+2026-05-28 14:56:51,906 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-13
+2026-05-28 14:56:51,975 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-31
+2026-05-28 14:56:52,074 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-32
+2026-05-28 14:56:52,175 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-33
+2026-05-28 14:56:52,249 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-15
+2026-05-28 14:56:52,250 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-15
+2026-05-28 14:56:52,276 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-34
+2026-05-28 14:56:52,374 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-35
+2026-05-28 14:56:52,443 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-16
+2026-05-28 14:56:52,443 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-16
+2026-05-28 14:56:52,476 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-36
+2026-05-28 14:56:52,575 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-37
+2026-05-28 14:56:52,675 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-38
+2026-05-28 14:56:52,695 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-17
+2026-05-28 14:56:52,695 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-17
+2026-05-28 14:56:52,711 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-19
+2026-05-28 14:56:52,711 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-19
+2026-05-28 14:56:52,775 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-39
+2026-05-28 14:56:52,837 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-18
+2026-05-28 14:56:52,841 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-18
+2026-05-28 14:56:52,858 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-20
+2026-05-28 14:56:52,858 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-20
+2026-05-28 14:56:52,862 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-24
+2026-05-28 14:56:52,862 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-24
+2026-05-28 14:56:52,875 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-40
+2026-05-28 14:56:52,975 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-41
+2026-05-28 14:56:52,999 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-22
+2026-05-28 14:56:52,999 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-22
+2026-05-28 14:56:53,076 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-42
+2026-05-28 14:56:53,175 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-43
+2026-05-28 14:56:53,275 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-44
+2026-05-28 14:56:53,338 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-21
+2026-05-28 14:56:53,338 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-21
+2026-05-28 14:56:53,374 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-45
+2026-05-28 14:56:53,457 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-23
+2026-05-28 14:56:53,457 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-23
+2026-05-28 14:56:53,475 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-46
+2026-05-28 14:56:53,576 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-47
+2026-05-28 14:56:53,678 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-48
+2026-05-28 14:56:53,775 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-49
+2026-05-28 14:56:53,811 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-25
+2026-05-28 14:56:53,811 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-25
+2026-05-28 14:56:53,876 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-50
+2026-05-28 14:56:54,093 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-26
+2026-05-28 14:56:54,093 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-26
+2026-05-28 14:56:54,256 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-27
+2026-05-28 14:56:54,256 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-27
+2026-05-28 14:56:54,423 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-28
+2026-05-28 14:56:54,423 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-28
+2026-05-28 14:56:54,538 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-29
+2026-05-28 14:56:54,538 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-29
+2026-05-28 14:56:54,648 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-30
+2026-05-28 14:56:54,649 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-30
+2026-05-28 14:56:54,726 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-31
+2026-05-28 14:56:54,727 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-31
+2026-05-28 14:56:54,772 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-32
+2026-05-28 14:56:54,772 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-32
+2026-05-28 14:56:54,924 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-33
+2026-05-28 14:56:54,925 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-33
+2026-05-28 14:56:54,948 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-34
+2026-05-28 14:56:54,948 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-34
+2026-05-28 14:56:54,993 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-35
+2026-05-28 14:56:54,993 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-35
+2026-05-28 14:56:55,031 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-36
+2026-05-28 14:56:55,031 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-36
+2026-05-28 14:56:55,087 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-37
+2026-05-28 14:56:55,087 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-37
+2026-05-28 14:56:55,107 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-39
+2026-05-28 14:56:55,108 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-39
+2026-05-28 14:56:55,138 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-38
+2026-05-28 14:56:55,139 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-38
+2026-05-28 14:56:55,206 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-42
+2026-05-28 14:56:55,206 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-42
+2026-05-28 14:56:55,209 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-40
+2026-05-28 14:56:55,211 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-40
+2026-05-28 14:56:55,226 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-41
+2026-05-28 14:56:55,226 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-41
+2026-05-28 14:56:55,304 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-46
+2026-05-28 14:56:55,305 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-46
+2026-05-28 14:56:55,327 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-45
+2026-05-28 14:56:55,328 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-45
+2026-05-28 14:56:55,365 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-44
+2026-05-28 14:56:55,365 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-44
+2026-05-28 14:56:55,382 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-43
+2026-05-28 14:56:55,382 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-43
+2026-05-28 14:56:55,385 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-47
+2026-05-28 14:56:55,385 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-47
+2026-05-28 14:56:55,487 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-48
+2026-05-28 14:56:55,487 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-48
+2026-05-28 14:56:55,521 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-49
+2026-05-28 14:56:55,521 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-49
+2026-05-28 14:56:55,532 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-50
+2026-05-28 14:56:55,532 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-50
+2026-05-28 14:56:55,532 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2026-05-28 14:56:55,533 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2026-05-28 14:57:14,069 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2026-05-28 14:57:14,069 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-05-28 14:57:14,072 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2026-05-28 14:57:14,076 INFO o.a.j.e.StandardJMeterEngine: Starting setUp thread groups
+2026-05-28 14:57:14,077 INFO o.a.j.e.StandardJMeterEngine: Starting setUp ThreadGroup: 1 : Set Up - Registrar usuario 
+2026-05-28 14:57:14,077 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Set Up - Registrar usuario.
+2026-05-28 14:57:14,077 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-05-28 14:57:14,077 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2026-05-28 14:57:14,077 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-05-28 14:57:14,077 INFO o.a.j.e.StandardJMeterEngine: Waiting for all setup thread groups to exit
+2026-05-28 14:57:14,077 INFO o.a.j.t.JMeterThread: Thread started: Set Up - Registrar usuario 1-1
+2026-05-28 14:57:14,078 INFO o.a.j.t.JMeterThread: Thread is done: Set Up - Registrar usuario 1-1
+2026-05-28 14:57:14,078 INFO o.a.j.t.JMeterThread: Thread finished: Set Up - Registrar usuario 1-1
+2026-05-28 14:57:14,078 INFO o.a.j.e.StandardJMeterEngine: All Setup Threads have ended
+2026-05-28 14:57:14,106 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Usuarios Concurrentes (50)
+2026-05-28 14:57:14,106 INFO o.a.j.e.StandardJMeterEngine: Starting 50 threads for group Usuarios Concurrentes (50).
+2026-05-28 14:57:14,106 INFO o.a.j.e.StandardJMeterEngine: Thread will start next loop on error
+2026-05-28 14:57:14,106 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=50 ramp-up=5 delayedStart=false
+2026-05-28 14:57:14,107 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-1
+2026-05-28 14:57:14,118 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-05-28 14:57:14,118 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2026-05-28 14:57:14,206 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-2
+2026-05-28 14:57:14,307 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-3
+2026-05-28 14:57:14,407 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-4
+2026-05-28 14:57:14,506 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-5
+2026-05-28 14:57:14,606 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-6
+2026-05-28 14:57:14,707 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-7
+2026-05-28 14:57:14,807 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-8
+2026-05-28 14:57:14,907 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-9
+2026-05-28 14:57:14,981 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-2
+2026-05-28 14:57:14,981 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-2
+2026-05-28 14:57:15,007 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-10
+2026-05-28 14:57:15,017 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-1
+2026-05-28 14:57:15,017 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-1
+2026-05-28 14:57:15,077 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-3
+2026-05-28 14:57:15,077 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-3
+2026-05-28 14:57:15,107 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-11
+2026-05-28 14:57:15,206 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-12
+2026-05-28 14:57:15,275 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-4
+2026-05-28 14:57:15,275 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-4
+2026-05-28 14:57:15,305 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-5
+2026-05-28 14:57:15,305 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-5
+2026-05-28 14:57:15,307 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-13
+2026-05-28 14:57:15,407 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-14
+2026-05-28 14:57:15,506 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-6
+2026-05-28 14:57:15,506 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-6
+2026-05-28 14:57:15,506 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-15
+2026-05-28 14:57:15,520 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-7
+2026-05-28 14:57:15,520 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-7
+2026-05-28 14:57:15,606 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-16
+2026-05-28 14:57:15,703 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-8
+2026-05-28 14:57:15,703 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-8
+2026-05-28 14:57:15,707 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-17
+2026-05-28 14:57:15,807 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-18
+2026-05-28 14:57:15,838 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-9
+2026-05-28 14:57:15,839 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-9
+2026-05-28 14:57:15,907 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-19
+2026-05-28 14:57:15,944 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-10
+2026-05-28 14:57:15,945 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-10
+2026-05-28 14:57:16,006 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-20
+2026-05-28 14:57:16,022 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-11
+2026-05-28 14:57:16,022 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-11
+2026-05-28 14:57:16,107 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-21
+2026-05-28 14:57:16,126 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-12
+2026-05-28 14:57:16,126 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-12
+2026-05-28 14:57:16,207 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-22
+2026-05-28 14:57:16,244 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-13
+2026-05-28 14:57:16,244 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-13
+2026-05-28 14:57:16,306 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-23
+2026-05-28 14:57:16,309 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-14
+2026-05-28 14:57:16,309 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-14
+2026-05-28 14:57:16,336 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-15
+2026-05-28 14:57:16,336 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-15
+2026-05-28 14:57:16,406 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-24
+2026-05-28 14:57:16,492 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-16
+2026-05-28 14:57:16,492 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-16
+2026-05-28 14:57:16,506 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-25
+2026-05-28 14:57:16,573 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-17
+2026-05-28 14:57:16,573 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-17
+2026-05-28 14:57:16,607 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-26
+2026-05-28 14:57:16,707 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-27
+2026-05-28 14:57:16,711 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-18
+2026-05-28 14:57:16,711 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-18
+2026-05-28 14:57:16,759 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-19
+2026-05-28 14:57:16,759 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-19
+2026-05-28 14:57:16,807 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-28
+2026-05-28 14:57:16,874 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-20
+2026-05-28 14:57:16,874 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-20
+2026-05-28 14:57:16,906 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-29
+2026-05-28 14:57:16,982 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-21
+2026-05-28 14:57:16,982 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-21
+2026-05-28 14:57:16,996 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-22
+2026-05-28 14:57:16,996 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-22
+2026-05-28 14:57:17,007 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-30
+2026-05-28 14:57:17,107 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-31
+2026-05-28 14:57:17,172 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-23
+2026-05-28 14:57:17,172 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-23
+2026-05-28 14:57:17,207 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-32
+2026-05-28 14:57:17,264 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-24
+2026-05-28 14:57:17,264 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-24
+2026-05-28 14:57:17,306 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-33
+2026-05-28 14:57:17,316 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-25
+2026-05-28 14:57:17,316 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-25
+2026-05-28 14:57:17,407 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-34
+2026-05-28 14:57:17,425 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-26
+2026-05-28 14:57:17,425 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-26
+2026-05-28 14:57:17,506 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-35
+2026-05-28 14:57:17,532 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-27
+2026-05-28 14:57:17,532 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-27
+2026-05-28 14:57:17,607 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-36
+2026-05-28 14:57:17,609 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-28
+2026-05-28 14:57:17,610 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-28
+2026-05-28 14:57:17,707 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-37
+2026-05-28 14:57:17,710 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-29
+2026-05-28 14:57:17,710 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-29
+2026-05-28 14:57:17,746 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-30
+2026-05-28 14:57:17,746 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-30
+2026-05-28 14:57:17,806 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-38
+2026-05-28 14:57:17,906 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-31
+2026-05-28 14:57:17,907 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-31
+2026-05-28 14:57:17,906 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-39
+2026-05-28 14:57:17,990 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-32
+2026-05-28 14:57:17,991 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-32
+2026-05-28 14:57:18,007 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-40
+2026-05-28 14:57:18,078 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-33
+2026-05-28 14:57:18,078 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-33
+2026-05-28 14:57:18,106 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-41
+2026-05-28 14:57:18,207 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-42
+2026-05-28 14:57:18,225 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-34
+2026-05-28 14:57:18,225 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-34
+2026-05-28 14:57:18,265 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-35
+2026-05-28 14:57:18,265 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-35
+2026-05-28 14:57:18,307 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-43
+2026-05-28 14:57:18,405 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-36
+2026-05-28 14:57:18,406 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-36
+2026-05-28 14:57:18,406 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-44
+2026-05-28 14:57:18,492 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-37
+2026-05-28 14:57:18,492 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-37
+2026-05-28 14:57:18,506 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-45
+2026-05-28 14:57:18,582 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-38
+2026-05-28 14:57:18,582 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-38
+2026-05-28 14:57:18,607 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-46
+2026-05-28 14:57:18,686 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-39
+2026-05-28 14:57:18,686 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-39
+2026-05-28 14:57:18,706 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-47
+2026-05-28 14:57:18,807 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-48
+2026-05-28 14:57:18,808 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-40
+2026-05-28 14:57:18,808 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-40
+2026-05-28 14:57:18,901 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-41
+2026-05-28 14:57:18,901 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-41
+2026-05-28 14:57:18,907 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-49
+2026-05-28 14:57:18,977 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-42
+2026-05-28 14:57:18,977 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-42
+2026-05-28 14:57:19,007 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-50
+2026-05-28 14:57:19,079 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-43
+2026-05-28 14:57:19,079 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-43
+2026-05-28 14:57:19,102 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-44
+2026-05-28 14:57:19,102 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-44
+2026-05-28 14:57:19,278 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-45
+2026-05-28 14:57:19,278 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-45
+2026-05-28 14:57:19,375 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-46
+2026-05-28 14:57:19,375 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-46
+2026-05-28 14:57:19,464 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-47
+2026-05-28 14:57:19,464 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-47
+2026-05-28 14:57:19,556 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-48
+2026-05-28 14:57:19,556 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-48
+2026-05-28 14:57:19,632 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-49
+2026-05-28 14:57:19,632 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-49
+2026-05-28 14:57:19,743 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-50
+2026-05-28 14:57:19,743 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-50
+2026-05-28 14:57:19,743 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2026-05-28 14:57:19,743 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2026-05-28 15:03:23,253 INFO o.a.j.g.a.Load: Loading file: /home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/test/jmeter/MercaList-Carga-Completa.jmx
+2026-05-28 15:03:23,254 INFO o.a.j.s.FileServer: Set new base='/home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/test/jmeter'
+2026-05-28 15:03:23,254 INFO o.a.j.s.SaveService: Loading file: /home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/test/jmeter/MercaList-Carga-Completa.jmx
+2026-05-28 15:03:23,380 INFO o.a.j.s.FileServer: Set new base='/home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/test/jmeter'
+2026-05-28 15:03:30,876 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2026-05-28 15:03:30,876 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-05-28 15:03:30,879 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2026-05-28 15:03:30,879 INFO o.a.j.e.StandardJMeterEngine: Starting setUp thread groups
+2026-05-28 15:03:30,879 INFO o.a.j.e.StandardJMeterEngine: Starting setUp ThreadGroup: 1 : Set Up - Registrar usuario 
+2026-05-28 15:03:30,879 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Set Up - Registrar usuario.
+2026-05-28 15:03:30,879 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-05-28 15:03:30,879 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2026-05-28 15:03:30,880 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-05-28 15:03:30,880 INFO o.a.j.e.StandardJMeterEngine: Waiting for all setup thread groups to exit
+2026-05-28 15:03:30,880 INFO o.a.j.t.JMeterThread: Thread started: Set Up - Registrar usuario 1-1
+2026-05-28 15:03:30,881 INFO o.a.j.t.JMeterThread: Thread is done: Set Up - Registrar usuario 1-1
+2026-05-28 15:03:30,881 INFO o.a.j.t.JMeterThread: Thread finished: Set Up - Registrar usuario 1-1
+2026-05-28 15:03:30,881 INFO o.a.j.e.StandardJMeterEngine: All Setup Threads have ended
+2026-05-28 15:03:30,916 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Usuarios Concurrentes (50)
+2026-05-28 15:03:30,916 INFO o.a.j.e.StandardJMeterEngine: Starting 50 threads for group Usuarios Concurrentes (50).
+2026-05-28 15:03:30,916 INFO o.a.j.e.StandardJMeterEngine: Thread will start next loop on error
+2026-05-28 15:03:30,916 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=50 ramp-up=5 delayedStart=false
+2026-05-28 15:03:30,917 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-1
+2026-05-28 15:03:30,929 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-05-28 15:03:30,929 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2026-05-28 15:03:31,016 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-2
+2026-05-28 15:03:31,117 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-3
+2026-05-28 15:03:31,217 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-4
+2026-05-28 15:03:31,316 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-5
+2026-05-28 15:03:31,417 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-6
+2026-05-28 15:03:31,517 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-7
+2026-05-28 15:03:31,616 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-8
+2026-05-28 15:03:31,692 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-1
+2026-05-28 15:03:31,692 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-1
+2026-05-28 15:03:31,717 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-9
+2026-05-28 15:03:31,775 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-2
+2026-05-28 15:03:31,775 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-2
+2026-05-28 15:03:31,817 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-10
+2026-05-28 15:03:31,881 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-3
+2026-05-28 15:03:31,881 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-3
+2026-05-28 15:03:31,917 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-11
+2026-05-28 15:03:31,990 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-4
+2026-05-28 15:03:31,990 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-4
+2026-05-28 15:03:32,016 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-12
+2026-05-28 15:03:32,066 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-5
+2026-05-28 15:03:32,066 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-5
+2026-05-28 15:03:32,116 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-13
+2026-05-28 15:03:32,116 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-6
+2026-05-28 15:03:32,117 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-6
+2026-05-28 15:03:32,217 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-14
+2026-05-28 15:03:32,269 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-7
+2026-05-28 15:03:32,269 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-7
+2026-05-28 15:03:32,291 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-8
+2026-05-28 15:03:32,292 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-8
+2026-05-28 15:03:32,317 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-15
+2026-05-28 15:03:32,417 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-16
+2026-05-28 15:03:32,500 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-9
+2026-05-28 15:03:32,500 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-9
+2026-05-28 15:03:32,517 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-17
+2026-05-28 15:03:32,578 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-10
+2026-05-28 15:03:32,578 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-10
+2026-05-28 15:03:32,609 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-11
+2026-05-28 15:03:32,609 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-11
+2026-05-28 15:03:32,616 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-18
+2026-05-28 15:03:32,716 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-19
+2026-05-28 15:03:32,757 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-12
+2026-05-28 15:03:32,757 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-12
+2026-05-28 15:03:32,816 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-20
+2026-05-28 15:03:32,860 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-13
+2026-05-28 15:03:32,861 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-13
+2026-05-28 15:03:32,917 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-21
+2026-05-28 15:03:33,007 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-14
+2026-05-28 15:03:33,007 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-14
+2026-05-28 15:03:33,013 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-15
+2026-05-28 15:03:33,013 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-15
+2026-05-28 15:03:33,017 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-22
+2026-05-28 15:03:33,117 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-23
+2026-05-28 15:03:33,159 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-16
+2026-05-28 15:03:33,159 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-16
+2026-05-28 15:03:33,216 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-24
+2026-05-28 15:03:33,259 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-18
+2026-05-28 15:03:33,259 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-18
+2026-05-28 15:03:33,264 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-17
+2026-05-28 15:03:33,264 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-17
+2026-05-28 15:03:33,316 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-25
+2026-05-28 15:03:33,410 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-19
+2026-05-28 15:03:33,410 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-19
+2026-05-28 15:03:33,417 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-26
+2026-05-28 15:03:33,517 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-27
+2026-05-28 15:03:33,589 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-20
+2026-05-28 15:03:33,589 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-20
+2026-05-28 15:03:33,617 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-28
+2026-05-28 15:03:33,716 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-29
+2026-05-28 15:03:33,723 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-21
+2026-05-28 15:03:33,723 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-21
+2026-05-28 15:03:33,816 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-30
+2026-05-28 15:03:33,848 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-22
+2026-05-28 15:03:33,848 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-22
+2026-05-28 15:03:33,913 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-23
+2026-05-28 15:03:33,913 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-23
+2026-05-28 15:03:33,917 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-31
+2026-05-28 15:03:34,017 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-32
+2026-05-28 15:03:34,024 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-24
+2026-05-28 15:03:34,024 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-24
+2026-05-28 15:03:34,117 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-33
+2026-05-28 15:03:34,123 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-25
+2026-05-28 15:03:34,123 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-25
+2026-05-28 15:03:34,196 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-26
+2026-05-28 15:03:34,196 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-26
+2026-05-28 15:03:34,216 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-34
+2026-05-28 15:03:34,317 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-35
+2026-05-28 15:03:34,318 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-27
+2026-05-28 15:03:34,318 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-27
+2026-05-28 15:03:34,376 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-28
+2026-05-28 15:03:34,376 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-28
+2026-05-28 15:03:34,417 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-36
+2026-05-28 15:03:34,478 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-29
+2026-05-28 15:03:34,478 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-29
+2026-05-28 15:03:34,517 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-37
+2026-05-28 15:03:34,596 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-30
+2026-05-28 15:03:34,596 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-30
+2026-05-28 15:03:34,616 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-38
+2026-05-28 15:03:34,684 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-31
+2026-05-28 15:03:34,684 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-31
+2026-05-28 15:03:34,716 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-39
+2026-05-28 15:03:34,800 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-32
+2026-05-28 15:03:34,801 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-32
+2026-05-28 15:03:34,817 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-40
+2026-05-28 15:03:34,904 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-33
+2026-05-28 15:03:34,904 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-33
+2026-05-28 15:03:34,916 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-41
+2026-05-28 15:03:34,945 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-34
+2026-05-28 15:03:34,945 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-34
+2026-05-28 15:03:35,016 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-42
+2026-05-28 15:03:35,089 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-35
+2026-05-28 15:03:35,089 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-35
+2026-05-28 15:03:35,117 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-43
+2026-05-28 15:03:35,187 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-36
+2026-05-28 15:03:35,187 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-36
+2026-05-28 15:03:35,217 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-44
+2026-05-28 15:03:35,282 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-37
+2026-05-28 15:03:35,282 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-37
+2026-05-28 15:03:35,316 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-45
+2026-05-28 15:03:35,370 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-39
+2026-05-28 15:03:35,370 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-39
+2026-05-28 15:03:35,378 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-38
+2026-05-28 15:03:35,378 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-38
+2026-05-28 15:03:35,417 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-46
+2026-05-28 15:03:35,517 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-47
+2026-05-28 15:03:35,561 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-40
+2026-05-28 15:03:35,561 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-40
+2026-05-28 15:03:35,616 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-48
+2026-05-28 15:03:35,671 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-41
+2026-05-28 15:03:35,672 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-41
+2026-05-28 15:03:35,716 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-49
+2026-05-28 15:03:35,795 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-42
+2026-05-28 15:03:35,795 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-42
+2026-05-28 15:03:35,817 INFO o.a.j.t.JMeterThread: Thread started: Usuarios Concurrentes (50) 1-50
+2026-05-28 15:03:35,900 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-43
+2026-05-28 15:03:35,900 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-43
+2026-05-28 15:03:35,990 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-44
+2026-05-28 15:03:35,990 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-44
+2026-05-28 15:03:36,088 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-45
+2026-05-28 15:03:36,088 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-45
+2026-05-28 15:03:36,174 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-46
+2026-05-28 15:03:36,174 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-46
+2026-05-28 15:03:36,269 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-47
+2026-05-28 15:03:36,269 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-47
+2026-05-28 15:03:36,372 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-49
+2026-05-28 15:03:36,372 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-49
+2026-05-28 15:03:36,397 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-48
+2026-05-28 15:03:36,397 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-48
+2026-05-28 15:03:36,528 INFO o.a.j.t.JMeterThread: Thread is done: Usuarios Concurrentes (50) 1-50
+2026-05-28 15:03:36,528 INFO o.a.j.t.JMeterThread: Thread finished: Usuarios Concurrentes (50) 1-50
+2026-05-28 15:03:36,528 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2026-05-28 15:03:36,529 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
