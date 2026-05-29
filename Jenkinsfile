@@ -36,9 +36,9 @@ pipeline {
                 sh '''
                     docker rm -f ${TEST_DB} || true
                     docker run -d --name ${TEST_DB} \
+                        --network container:jenkins \
                         -e MYSQL_ROOT_PASSWORD=${DB_PASS} \
                         -e MYSQL_DATABASE=mercalist_test_db \
-                        -p 3306:3306 \
                         mariadb:11
                     echo "Waiting for MariaDB..."
                     for i in $(seq 1 30); do
@@ -84,7 +84,7 @@ pipeline {
         }
         always {
             sh 'docker rm -f ${TEST_DB} || true'
-            cleanWs()
+            deleteDir()
         }
     }
 }
