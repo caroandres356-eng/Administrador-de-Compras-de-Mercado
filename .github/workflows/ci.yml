@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    services:
+      mariadb:
+        image: mariadb:11
+        env:
+          MYSQL_ROOT_PASSWORD: Pipesofi2006
+          MYSQL_DATABASE: mercalist_test_db
+        ports:
+          - 3306:3306
+        options: --health-cmd "mariadb-admin ping -uroot -pPipesofi2006 --silent" --health-interval 5s --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: temurin
+          cache: maven
+      - name: Build and Test
+        run: mvn clean package -f backend/pom.xml
+        env:
+          DB_PASS: Pipesofi2006
+      - name: Upload JAR artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-jar
+          path: backend/target/*.jar
+
+  docker:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Docker Build
+        run: docker build -t market-admin:latest ./backend
+      - name: Tag and Push to Docker Hub
+        if: vars.DOCKER_USERNAME != ''
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ vars.DOCKER_USERNAME }}" --password-stdin
+          docker tag market-admin:latest ${{ vars.DOCKER_USERNAME }}/market-admin:latest
+          docker push ${{ vars.DOCKER_USERNAME }}/market-admin:latest
