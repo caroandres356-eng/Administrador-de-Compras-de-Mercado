@@ -1,93 +1,45 @@
 pipeline {
     agent any
-
-    parameters {
-        string(name: 'BRANCH', defaultValue: 'feature_julian', description: 'Branch a desplegar')
-        string(name: 'DB_PASS', defaultValue: 'Pipesofi2006', description: 'Contraseña de MariaDB')
-    }
-
-    environment {
-        DOCKER_IMAGE = 'market-admin'
-        DOCKER_TAG = "${BUILD_NUMBER}"
-        TEST_DB = 'mercalist-test-db'
-    }
-
     stages {
-        stage('Checkout') {
-            steps {
-                checkout scm: [
-                    $class: 'GitSCM',
-                    branches: [[name: "${params.BRANCH}"]],
-                    userRemoteConfigs: [[url: 'https://github.com/caroandres356-eng/Administrador-de-Compras-de-Mercado.git']]
-                ]
-            }
-        }
-
         stage('Build') {
             steps {
                 dir('backend') {
-                    sh 'mvn clean package -DskipTests=true'
+                    sh 'docker rm -f test-mariadb 2>/dev/null || true'
+                    sh 'docker run -d --name test-mariadb --network container:jenkins -e MYSQL_ROOT_PASSWORD=Pipesofi2006 -e MYSQL_DATABASE=mercalist_test_db mariadb:11'
+                    sh 'for i in $(seq 1 30); do docker exec test-mariadb mariadb-admin ping -uroot -pPipesofi2006 --silent 2>/dev/null && break; sleep 2; done'
+                    sh 'mvn clean package -DskipTests=false'
                 }
             }
         }
-
-        stage('Start Test DB') {
-            steps {
-                sh '''
-                    docker rm -f ${TEST_DB} || true
-                    docker run -d --name ${TEST_DB} \
-                        --network container:jenkins \
-                        -e MYSQL_ROOT_PASSWORD=${DB_PASS} \
-                        -e MYSQL_DATABASE=mercalist_test_db \
-                        mariadb:11
-                    echo "Waiting for MariaDB..."
-                    for i in $(seq 1 30); do
-                        if docker exec ${TEST_DB} mariadb-admin ping -uroot -p${DB_PASS} --silent 2>/dev/null; then
-                            echo "MariaDB ready"
-                            break
-                        fi
-                        sleep 2
-                    done
-                '''
-            }
-        }
-
-        stage('Test') {
+        stage('Run Tests') {
             steps {
                 dir('backend') {
-                    sh 'mvn test -DDB_PASS=${DB_PASS}'
+                    sh 'mvn test'
                 }
             }
         }
-
         stage('Docker Build') {
             steps {
-                sh 'docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ./backend'
-                sh 'docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:latest'
+                sh 'docker build -t market-admin:latest ./backend'
             }
         }
-
-        stage('Docker Compose Up') {
+        stage('Docker Run') {
             steps {
-                sh '''
-                    # Limpiar cualquier contenedor previo del stack
-                    docker rm -f mercalist-deploy-db-1 mercalist-deploy-backend-1 2>/dev/null || true
-                    DB_PASS=${DB_PASS} docker compose -p mercalist-deploy up -d
-                '''
+                sh 'docker rm -f market-admin 2>/dev/null || true'
+                sh 'docker run -d --name market-admin -p 8080:8080 market-admin:latest'
             }
         }
     }
-
     post {
+        always {
+            sh 'docker rm -f test-mariadb 2>/dev/null || true'
+            echo 'Pipeline terminado.'
+        }
         success {
-            echo "Pipeline ejecutado exitosamente — ${DOCKER_IMAGE}:${DOCKER_TAG}"
+            echo '¡Despliegue exitoso!'
         }
         failure {
-            echo 'Pipeline falló. Revisar los logs.'
-        }
-        always {
-            sh 'docker rm -f ${TEST_DB} || true'
-            deleteDir()
+            echo 'Error en el pipeline. Revisar los logs.'
         }
     }
 }
