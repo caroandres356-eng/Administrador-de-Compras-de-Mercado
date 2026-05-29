@@ -2,13 +2,14 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'BRANCH', defaultValue: 'main', description: 'Branch a desplegar')
-        string(name: 'DB_PASS', defaultValue: '', description: 'Contraseña de MariaDB')
+        string(name: 'BRANCH', defaultValue: 'feature_julian', description: 'Branch a desplegar')
+        string(name: 'DB_PASS', defaultValue: 'Pipesofi2006', description: 'Contraseña de MariaDB')
     }
 
     environment {
         DOCKER_IMAGE = 'market-admin'
         DOCKER_TAG = "${BUILD_NUMBER}"
+        TEST_DB = 'mercalist-test-db'
     }
 
     stages {
@@ -27,6 +28,27 @@ pipeline {
                 dir('backend') {
                     sh 'mvn clean package -DskipTests=true'
                 }
+            }
+        }
+
+        stage('Start Test DB') {
+            steps {
+                sh '''
+                    docker rm -f ${TEST_DB} || true
+                    docker run -d --name ${TEST_DB} \
+                        -e MYSQL_ROOT_PASSWORD=${DB_PASS} \
+                        -e MYSQL_DATABASE=mercalist_test_db \
+                        -p 3306:3306 \
+                        mariadb:11
+                    echo "Waiting for MariaDB..."
+                    for i in $(seq 1 30); do
+                        if docker exec ${TEST_DB} mariadb-admin ping -uroot -p${DB_PASS} --silent 2>/dev/null; then
+                            echo "MariaDB ready"
+                            break
+                        fi
+                        sleep 2
+                    done
+                '''
             }
         }
 
@@ -61,6 +83,7 @@ pipeline {
             echo 'Pipeline falló. Revisar los logs.'
         }
         always {
+            sh 'docker rm -f ${TEST_DB} || true'
             cleanWs()
         }
     }
