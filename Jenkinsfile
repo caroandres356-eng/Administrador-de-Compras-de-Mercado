@@ -69,8 +69,11 @@ pipeline {
 
         stage('Docker Compose Up') {
             steps {
-                sh 'DB_PASS=${DB_PASS} docker compose down -v || true'
-                sh 'DB_PASS=${DB_PASS} docker compose up -d'
+                sh '''
+                    # Limpiar cualquier contenedor previo del stack
+                    docker rm -f mercalist-deploy-db-1 mercalist-deploy-backend-1 2>/dev/null || true
+                    DB_PASS=${DB_PASS} docker compose -p mercalist-deploy up -d
+                '''
             }
         }
     }
