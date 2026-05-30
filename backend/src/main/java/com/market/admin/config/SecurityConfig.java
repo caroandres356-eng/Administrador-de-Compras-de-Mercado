@@ -92,6 +92,7 @@ public class SecurityConfig {
                         .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers("/swagger-ui/**", "/swagger-ui.html", "/v3/api-docs/**", "/webjars/**")
                         .permitAll()
+                        .requestMatchers("/error").permitAll()
 
                         // cualquier otra peticion a cualquier otro endpoint requiere autenticacion
                         .anyRequest().authenticated())

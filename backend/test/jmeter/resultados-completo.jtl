@@ -1,0 +1,393 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1779998178111,182,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-22,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,26,26,http://localhost:8080/api/lists,181,0,0
+1779998178115,182,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-12,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,26,26,http://localhost:8080/api/lists,175,0,0
+1779998178235,88,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-23,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,26,26,http://localhost:8080/api/lists,88,0,0
+1779998178456,48,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,399,28,28,http://localhost:8080/api/lists,48,0,0
+1779998178635,23,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-7,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,399,29,29,http://localhost:8080/api/lists,21,0,0
+1779998178648,65,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-9,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,399,30,30,http://localhost:8080/api/lists,62,0,0
+1779998178818,168,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-8,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,399,33,33,http://localhost:8080/api/lists,167,0,0
+1779998178954,80,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-9,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,399,33,33,http://localhost:8080/api/lists,79,0,0
+1779998179308,95,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-33,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,37,37,http://localhost:8080/api/lists,95,0,0
+1779998179351,68,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-11,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,37,37,http://localhost:8080/api/lists,68,0,0
+1779998179674,147,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-11,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,41,41,http://localhost:8080/api/lists,147,0,0
+1779998179963,69,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-12,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,43,43,http://localhost:8080/api/lists,68,0,0
+1779998180338,60,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-16,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,47,47,http://localhost:8080/api/lists,59,0,0
+1779998180297,157,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-22,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,47,47,http://localhost:8080/api/lists,153,0,0
+1779998180510,117,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-46,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,49,49,http://localhost:8080/api/lists,116,0,0
+1779998181026,165,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-31,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,49,49,http://localhost:8080/api/lists,164,0,0
+1779998181093,101,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-8,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,399,49,49,http://localhost:8080/api/lists,100,0,0
+1779998181926,91,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-44,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,45,45,http://localhost:8080/api/lists,91,0,0
+1779998182437,41,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-19,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,44,44,http://localhost:8080/api/lists,40,0,0
+1779998182561,50,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-16,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,44,44,http://localhost:8080/api/lists,49,0,0
+1779998182530,98,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-21,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,42,42,http://localhost:8080/api/lists,98,0,0
+1779998182808,39,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-21,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,40,40,http://localhost:8080/api/lists,39,0,0
+1779998183562,64,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-20,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,35,35,http://localhost:8080/api/lists,63,0,0
+1779998184025,49,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-28,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,31,31,http://localhost:8080/api/lists,49,0,0
+1779998184179,65,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-26,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,28,28,http://localhost:8080/api/lists,65,0,0
+1779998184857,57,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-38,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,20,20,http://localhost:8080/api/lists,55,0,0
+1779998185137,14,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-50,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,11,11,http://localhost:8080/api/lists,14,0,0
+1779998209961,16,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-10,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,11,11,http://localhost:8080/api/lists,14,0,0
+1779998210486,23,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-12,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,13,13,http://localhost:8080/api/lists,23,0,0
+1779998210669,14,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-14,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,14,14,http://localhost:8080/api/lists,14,0,0
+1779998210880,25,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-19,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,14,14,http://localhost:8080/api/lists,24,0,0
+1779998211000,28,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-20,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,15,15,http://localhost:8080/api/lists,27,0,0
+1779998211363,12,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-24,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,15,15,http://localhost:8080/api/lists,12,0,0
+1779998211856,31,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-24,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,17,17,http://localhost:8080/api/lists,30,0,0
+1779998212445,46,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-22,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,20,20,http://localhost:8080/api/lists,46,0,0
+1779998214449,25,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-47,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,22,22,http://localhost:8080/api/lists,24,0,0
+1779998214470,41,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-42,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,22,22,http://localhost:8080/api/lists,41,0,0
+1779998215042,19,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-45,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,14,14,http://localhost:8080/api/lists,19,0,0
+1779998215294,9,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-46,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,8,8,http://localhost:8080/api/lists,9,0,0
+1779998234274,9,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,399,2,2,http://localhost:8080/api/lists,9,0,0
+1779998234888,9,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,399,8,8,http://localhost:8080/api/lists,9,0,0
+1779998234912,8,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,399,9,9,http://localhost:8080/api/lists,8,0,0
+1779998235155,7,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-7,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,399,8,8,http://localhost:8080/api/lists,6,0,0
+1779998235769,11,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-15,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,9,9,http://localhost:8080/api/lists,11,0,0
+1779998236468,8,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-22,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,9,9,http://localhost:8080/api/lists,8,0,0
+1779998237561,6,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-30,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,8,8,http://localhost:8080/api/lists,6,0,0
+1779998238472,5,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-44,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,8,8,http://localhost:8080/api/lists,5,0,0
+1779998612110,6,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-6,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,399,7,7,http://localhost:8080/api/lists,6,0,0
+1779998612287,4,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-11,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,7,7,http://localhost:8080/api/lists,4,0,0
+1779998612287,4,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-8,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,399,7,7,http://localhost:8080/api/lists,4,0,0
+1779998612548,5,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-15,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,8,8,http://localhost:8080/api/lists,5,0,0
+1779998613099,6,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-19,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,7,7,http://localhost:8080/api/lists,5,0,0
+1779998613254,5,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-18,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,8,8,http://localhost:8080/api/lists,5,0,0
+1779998614465,5,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-34,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,8,8,http://localhost:8080/api/lists,5,0,0
+1779998615364,5,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-39,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,8,8,http://localhost:8080/api/lists,5,0,0
+1779998615782,5,L1 - Crear lista,500,,Usuarios Concurrentes (50) 1-49,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[5]]]00
+
+****** comparison: [[[2]]]00
+
+/",490,400,8,8,http://localhost:8080/api/lists,5,0,0

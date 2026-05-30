@@ -10,10 +10,12 @@ import com.market.admin.repository.ShoppingListRepository;
 import com.market.admin.repository.UserRepository;
 // Importaciones de Spring Framework y Seguridad
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 // Importaciones utilitarias
 import java.util.List;
@@ -53,7 +55,7 @@ public class ShoppingListService {
         }
         
         // Busca y retorna el usuario en la BD
-        return userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("User not found"));
+        return userRepository.findByEmail(email).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
     }
 
     /**
@@ -89,11 +91,11 @@ public class ShoppingListService {
     public ShoppingList updateList(long id, ShoppingList listDetails) {
         // Busca la lista
         ShoppingList list = shoppingListRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("List not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "List not found"));
 
         // Valida propiedad de la lista
         if (!list.getUser().getId().equals(getCurrentUser().getId())) {
-            throw new RuntimeException("Unauthorized");
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Unauthorized");
         }
 
         // Aplica cambios
@@ -114,11 +116,11 @@ public class ShoppingListService {
     public void deleteList(long id) {
         // Busca la lista
         ShoppingList list = shoppingListRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("List not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "List not found"));
 
         // Valida propiedad
         if (!list.getUser().getId().equals(getCurrentUser().getId())) {
-            throw new RuntimeException("Unauthorized");
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Unauthorized");
         }
 
         // Elimina de DB
@@ -136,11 +138,11 @@ public class ShoppingListService {
     public ShoppingList getListById(long id) {
         // Busca la lista
         ShoppingList list = shoppingListRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("List not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "List not found"));
 
         // Valida permisos
         if (!list.getUser().getId().equals(getCurrentUser().getId())) {
-            throw new RuntimeException("Unauthorized");
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Unauthorized");
         }
 
         return list;

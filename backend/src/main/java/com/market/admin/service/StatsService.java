@@ -10,6 +10,7 @@ import com.market.admin.model.ShoppingList;
 // Importaciones de Spring Framework
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 // Importaciones utilitarias
 import java.time.format.TextStyle;
@@ -20,7 +21,8 @@ import java.util.stream.Collectors;
  * Servicio encargado de la agregación y procesamiento de datos para la visualización de estadísticas.
  * Transforma datos crudos del sistema en formatos listos para gráficos en el frontend.
  */
-@Service // Indica que es un servicio de Spring
+@Service
+@Transactional(readOnly = true)
 public class StatsService {
 
     @Autowired // Inyecta el servicio de listas para obtener los datos del usuario actual
