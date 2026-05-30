@@ -1,0 +1,18 @@
+services:
+  db:
+    image: mariadb:11
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASS:-Pipesofi2006}
+      MYSQL_DATABASE: ${DB_NAME:-mercalist_db}
+    ports:
+      - "${DB_PORT:-3307}:3306"
+    volumes:
+      - mariadb_dev_data:/var/lib/mysql
+      - ./docker/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      timeout: 20s
+      retries: 10
+
+volumes:
+  mariadb_dev_data:

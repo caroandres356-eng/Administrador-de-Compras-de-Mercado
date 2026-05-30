@@ -11,6 +11,8 @@ import com.market.admin.model.User;
 import com.market.admin.service.AuthService;
 // Importaciones de Spring Framework web
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,15 +46,18 @@ public class AuthController {
     // metodoo que devuelve un objeto http que representa la respuesta a la peticion
     // completa
     public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
-        // Construimos la entidad de usuario a partir del DTO
-        User user = User.builder()
-                .email(request.getEmail())
-                .password(request.getPassword()) // esto se puede corregir (encriptación en el servicio)
-                .name(request.getName())
-                .build();
+        try {
+            User user = User.builder()
+                    .email(request.getEmail())
+                    .password(request.getPassword())
+                    .name(request.getName())
+                    .build();
 
-        return ResponseEntity.ok(authService.register(user));// devueve 200 ok, y llama al servicio para registrar el
-                                                             // usuario en la bd
+            return ResponseEntity.ok(authService.register(user));
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body(Map.of("error", "El email ya está registrado"));
+        }
     }
 
     /**

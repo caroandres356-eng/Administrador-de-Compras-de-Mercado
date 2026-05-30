@@ -9,12 +9,14 @@ import com.market.admin.repository.UserRepository;
 // Importaciones de seguridad
 import com.market.admin.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 // Importaciones de utilidades Java
 import java.util.HashMap;
@@ -76,7 +78,7 @@ public class AuthService {
 
         // Obtiene el usuario completo de la base de datos para extraer sus datos de perfil
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("User not found after authentication"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found after authentication"));
 
         // Construye el mapa de respuesta
         Map<String, Object> response = new HashMap<>();

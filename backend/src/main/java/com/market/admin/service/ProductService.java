@@ -9,8 +9,10 @@ import com.market.admin.model.ShoppingList;
 import com.market.admin.repository.ProductRepository;
 // Importaciones de Spring Framework
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 // Importaciones utilitarias
 import java.util.List;
@@ -84,11 +86,11 @@ public class ProductService { // Clase que se encarga de la gestión de producto
         ShoppingList list = shoppingListService.getListById(listId);
         // Obtiene el producto a modificar
         Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new RuntimeException("Product not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
 
         // Validar que el producto corresponda a la lista solicitada
         if (!product.getShoppingList().getId().equals(list.getId())) {
-            throw new RuntimeException("Product does not belong to this list");
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Product does not belong to this list");
         }
 
         // Actualizar solo los campos que vienen con datos
@@ -121,11 +123,11 @@ public class ProductService { // Clase que se encarga de la gestión de producto
         ShoppingList list = shoppingListService.getListById(listId);
         // Busca el producto
         Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new RuntimeException("Product not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found"));
 
         // Asegurar que se intenta borrar un producto de la lista correcta
         if (!product.getShoppingList().getId().equals(list.getId())) {
-            throw new RuntimeException("Product does not belong to this list");
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Product does not belong to this list");
         }
 
         // Elimina el producto usando el repositorio

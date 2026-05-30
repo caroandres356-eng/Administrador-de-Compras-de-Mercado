@@ -14,7 +14,7 @@
         <name>market-admin</name>
         <description>Admin de Compras de Mercado</description>
         <properties>
-        <java.version>21</java.version>
+        <java.version>17</java.version>
         </properties>
         <dependencies>
                 <dependency>
@@ -30,13 +30,8 @@
                         <artifactId>spring-boot-starter-web</artifactId>
                 </dependency>
                 <dependency>
-                        <groupId>com.h2database</groupId>
-                        <artifactId>h2</artifactId>
-                        <scope>runtime</scope>
-                </dependency>
-                <dependency>
-                        <groupId>com.mysql</groupId>
-                        <artifactId>mysql-connector-j</artifactId>
+                        <groupId>org.mariadb.jdbc</groupId>
+                        <artifactId>mariadb-java-client</artifactId>
                         <scope>runtime</scope>
                 </dependency>
                 <dependency>
@@ -103,6 +98,14 @@
                                                         <artifactId>lombok</artifactId>
                                                 </exclude>
                                         </excludes>
+                                </configuration>
+                        </plugin>
+                        <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-surefire-plugin</artifactId>
+                                <version>3.2.5</version>
+                                <configuration>
+                                        <skipTests>${skipTests}</skipTests>
                                 </configuration>
                         </plugin>
                 </plugins>

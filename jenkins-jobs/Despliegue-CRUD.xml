@@ -1,0 +1,67 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@1571.1580.v18e46842c125">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@2.2277.v00573e73ddf1"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@2.2277.v00573e73ddf1">
+      <jobProperties/>
+      <triggers/>
+      <parameters/>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
+  <description>Pipeline automatizado para Administrador de Compras de Mercado - Build, Tests, Docker Build &amp; Deploy</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@4331.v9d06ed4658ff">
+    <script>pipeline {
+    agent any
+    stages {
+        stage(&apos;Checkout&apos;) {
+            steps {
+                git branch: &apos;feature_julian&apos;, url: &apos;https://github.com/caroandres356-eng/Administrador-de-Compras-de-Mercado.git&apos;
+            }
+        }
+        stage(&apos;Build and Test&apos;) {
+            steps {
+                dir(&apos;backend&apos;) {
+                    sh &apos;docker network create jenkins-net 2&gt;/dev/null || true&apos;
+                    sh &apos;docker rm -f test-mariadb 2&gt;/dev/null || true&apos;
+                    sh &apos;docker run -d --name test-mariadb --network container:jenkins -e MYSQL_ROOT_PASSWORD=Pipesofi2006 -e MYSQL_DATABASE=mercalist_test_db mariadb:11&apos;
+                    sh &apos;for i in $(seq 1 30); do docker exec test-mariadb mariadb-admin ping -uroot -pPipesofi2006 --silent 2&gt;/dev/null &amp;&amp; break; sleep 2; done&apos;
+                    sh &apos;mvn clean package&apos;
+                }
+            }
+        }
+        stage(&apos;Docker Build&apos;) {
+            steps {
+                sh &apos;docker build -t market-admin:latest ./backend&apos;
+            }
+        }
+        stage(&apos;Docker Deploy&apos;) {
+            steps {
+                sh &apos;docker rm -f deploy-db 2&gt;/dev/null || true&apos;
+                sh &apos;docker run -d --name deploy-db --network jenkins-net -e MYSQL_ROOT_PASSWORD=Pipesofi2006 -e MYSQL_DATABASE=mercalist_db mariadb:11&apos;
+                sh &apos;for i in $(seq 1 30); do docker exec deploy-db mariadb-admin ping -uroot -pPipesofi2006 --silent 2&gt;/dev/null &amp;&amp; break; sleep 2; done&apos;
+                sh &apos;docker rm -f market-admin 2&gt;/dev/null || true&apos;
+                sh &apos;docker run -d --name market-admin --network jenkins-net -p 8081:8080 -e DB_HOST=deploy-db -e DB_NAME=mercalist_db -e DB_PASS=Pipesofi2006 -e SPRING_PROFILES_ACTIVE=dev market-admin:latest&apos;
+            }
+        }
+    }
+    post {
+        always {
+            sh &apos;docker rm -f test-mariadb 2&gt;/dev/null || true&apos;
+            echo &apos;Pipeline terminado.&apos;
+        }
+        success {
+            echo &apos;!Despliegue exitoso!&apos;
+        }
+        failure {
+            echo &apos;Error en el pipeline. Revisar los logs.&apos;
+        }
+    }
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>
