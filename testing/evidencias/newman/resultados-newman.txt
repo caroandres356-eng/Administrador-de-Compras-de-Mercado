@@ -1,0 +1,252 @@
+NEWMAN - Resultados de Pruebas de Sistema
+Coleccion: MercaList - Pruebas Completa
+=======================================================
+
+RESUMEN GENERAL
+------------------------------
+Total requests:    140
+Tests ejecutados:  290
+Tests fallidos:    0
+Iteraciones:       5
+
+DETALLE POR REQUEST
+------------------------------
+  [PASS] POST A1 - Registrar usuario
+        HTTP 200 | 76ms avg | 10 iter
+        + Status 200
+
+  [PASS] POST A2 - Login correcto
+        HTTP 200 | 73ms avg | 10 iter
+        + Status 200
+        + Tiene token
+
+  [PASS] POST L1 - Crear lista
+        HTTP 200 | 11ms avg | 15 iter
+        + Status 200
+        + Tiene id
+        + Nombre correcto
+
+  [PASS] GET L2 - Obtener todas las listas
+        HTTP 200 | 10ms avg | 5 iter
+        + Status 200
+        + Es un arreglo
+        + Tiene al menos 1 lista
+
+  [PASS] GET api/lists/2930
+        HTTP 200 | 11ms avg | 1 iter
+        + Status 200
+        + ID coincide
+        + Tiene productos
+
+  [PASS] PUT api/lists/2930
+        HTTP 200 | 16ms avg | 1 iter
+        + Status 200
+        + Nombre actualizado
+        + Emoji actualizado
+
+  [PASS] DELETE api/lists/2930
+        HTTP 200 | 15ms avg | 1 iter
+        + Status 200
+
+  [PASS] GET L6 [ERROR] - Obtener lista inexistente (ID 99999)
+        HTTP 404 | 7ms avg | 5 iter
+        + Status 404 Not Found
+
+  [PASS] DELETE L7 [ERROR] - Eliminar lista inexistente (ID 99999)
+        HTTP 404 | 9ms avg | 5 iter
+        + Status 404 Not Found
+
+  [PASS] POST P2 - Agregar producto a la lista
+        HTTP 200 | 16ms avg | 5 iter
+        + Status 200
+        + Tiene id
+        + Nombre correcto
+        + Categoria correcta
+
+  [PASS] GET P3 - Obtener productos de la lista
+        HTTP 200 | 9ms avg | 5 iter
+        + Status 200
+        + Es arreglo
+        + Tiene al menos 1
+        + Primer producto es Leche
+
+  [PASS] PUT api/lists/2931/products/1556
+        HTTP 200 | 14ms avg | 1 iter
+        + Status 200
+        + Nombre actualizado
+        + Comprado = true
+
+  [PASS] DELETE api/lists/2931/products/1556
+        HTTP 200 | 19ms avg | 1 iter
+        + Status 200
+
+  [PASS] POST P6 [ERROR] - Producto a lista inexistente (ID 99999)
+        HTTP 404 | 8ms avg | 5 iter
+        + Status 404 Not Found
+
+  [PASS] PUT P7 [ERROR] - Actualizar producto inexistente (ID 99999)
+        HTTP 404 | 9ms avg | 5 iter
+        + Status 404 Not Found
+
+  [PASS] POST R1 - Crear recordatorio
+        HTTP 200 | 12ms avg | 10 iter
+        + Status 200
+        + Tiene id
+        + Titulo correcto
+
+  [PASS] GET R2 - Obtener todos los recordatorios
+        HTTP 200 | 9ms avg | 5 iter
+        + Status 200
+        + Es arreglo
+        + Tiene al menos 1
+
+  [PASS] GET R3 - Obtener conteo de no leídos
+        HTTP 200 | 9ms avg | 5 iter
+        + Status 200
+        + Tiene count
+        + Count es numero
+
+  [PASS] PATCH R4 - Marcar recordatorio como leído
+        HTTP 200 | 16ms avg | 5 iter
+        + Status 200
+
+  [PASS] DELETE api/reminders/1456
+        HTTP 200 | 18ms avg | 1 iter
+        + Status 200
+
+  [PASS] PUT U1 - Actualizar perfil
+        HTTP 200 | 15ms avg | 5 iter
+        + Status 200
+        + Nombre actualizado
+        + Email preservado
+
+  [PASS] GET S1 - Obtener estadísticas
+        HTTP 200 | 5ms avg | 10 iter
+        + Status 200
+        + Tiene monthlySpend
+        + Tiene totalLists
+        + Tiene totalProducts
+
+  [PASS] GET api/lists/2932
+        HTTP 200 | 10ms avg | 1 iter
+        + Status 200
+        + ID coincide
+        + Tiene productos
+
+  [PASS] PUT api/lists/2932
+        HTTP 200 | 12ms avg | 1 iter
+        + Status 200
+        + Nombre actualizado
+        + Emoji actualizado
+
+  [PASS] DELETE api/lists/2932
+        HTTP 200 | 12ms avg | 1 iter
+        + Status 200
+
+  [PASS] PUT api/lists/2933/products/1557
+        HTTP 200 | 14ms avg | 1 iter
+        + Status 200
+        + Nombre actualizado
+        + Comprado = true
+
+  [PASS] DELETE api/lists/2933/products/1557
+        HTTP 200 | 13ms avg | 1 iter
+        + Status 200
+
+  [PASS] DELETE api/reminders/1457
+        HTTP 200 | 14ms avg | 1 iter
+        + Status 200
+
+  [PASS] GET api/lists/2934
+        HTTP 200 | 12ms avg | 1 iter
+        + Status 200
+        + ID coincide
+        + Tiene productos
+
+  [PASS] PUT api/lists/2934
+        HTTP 200 | 17ms avg | 1 iter
+        + Status 200
+        + Nombre actualizado
+        + Emoji actualizado
+
+  [PASS] DELETE api/lists/2934
+        HTTP 200 | 12ms avg | 1 iter
+        + Status 200
+
+  [PASS] PUT api/lists/2935/products/1558
+        HTTP 200 | 33ms avg | 1 iter
+        + Status 200
+        + Nombre actualizado
+        + Comprado = true
+
+  [PASS] DELETE api/lists/2935/products/1558
+        HTTP 200 | 19ms avg | 1 iter
+        + Status 200
+
+  [PASS] DELETE api/reminders/1458
+        HTTP 200 | 21ms avg | 1 iter
+        + Status 200
+
+  [PASS] GET api/lists/2936
+        HTTP 200 | 9ms avg | 1 iter
+        + Status 200
+        + ID coincide
+        + Tiene productos
+
+  [PASS] PUT api/lists/2936
+        HTTP 200 | 23ms avg | 1 iter
+        + Status 200
+        + Nombre actualizado
+        + Emoji actualizado
+
+  [PASS] DELETE api/lists/2936
+        HTTP 200 | 13ms avg | 1 iter
+        + Status 200
+
+  [PASS] PUT api/lists/2937/products/1559
+        HTTP 200 | 33ms avg | 1 iter
+        + Status 200
+        + Nombre actualizado
+        + Comprado = true
+
+  [PASS] DELETE api/lists/2937/products/1559
+        HTTP 200 | 20ms avg | 1 iter
+        + Status 200
+
+  [PASS] DELETE api/reminders/1459
+        HTTP 200 | 19ms avg | 1 iter
+        + Status 200
+
+  [PASS] GET api/lists/2938
+        HTTP 200 | 7ms avg | 1 iter
+        + Status 200
+        + ID coincide
+        + Tiene productos
+
+  [PASS] PUT api/lists/2938
+        HTTP 200 | 11ms avg | 1 iter
+        + Status 200
+        + Nombre actualizado
+        + Emoji actualizado
+
+  [PASS] DELETE api/lists/2938
+        HTTP 200 | 19ms avg | 1 iter
+        + Status 200
+
+  [PASS] PUT api/lists/2939/products/1560
+        HTTP 200 | 15ms avg | 1 iter
+        + Status 200
+        + Nombre actualizado
+        + Comprado = true
+
+  [PASS] DELETE api/lists/2939/products/1560
+        HTTP 200 | 12ms avg | 1 iter
+        + Status 200
+
+  [PASS] DELETE api/reminders/1460
+        HTTP 200 | 15ms avg | 1 iter
+        + Status 200
+
+=======================================================
+RESULTADO FINAL: TODOS LOS TESTS PASARON (0 fallos)
+  290 assertions | 140 requests | 5 iteraciones

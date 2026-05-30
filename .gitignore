@@ -5,6 +5,7 @@
 # IDE config
 .vscode/
 .idea/
+.github/
 
 # Common ignores
 node_modules/
@@ -30,6 +31,8 @@ frontend/dist/
 frontend/build/
 
 # Test output / generated files (not test definitions)
-test/jmeter/*.log
-test/jmeter/*.jtl
-test/reports/
+testing/rendimiento/resultados/*.jtl
+*.log
+# JMeter HTML reports (generados, no van al repo)
+testing/rendimiento/reportes/
+backend/jmeter.log

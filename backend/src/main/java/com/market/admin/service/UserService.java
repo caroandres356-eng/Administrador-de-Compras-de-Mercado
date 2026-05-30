@@ -10,6 +10,7 @@ import com.market.admin.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 // Importaciones utilitarias
@@ -33,6 +34,7 @@ public class UserService {
      * @param body Mapa que contiene los campos a actualizar (name, avatar).
      * @return Un mapa con los datos actualizados del perfil.
      */
+    @Transactional
     public Map<String, Object> updateProfile(String email, Map<String, String> body) { // Actualiza el perfil del usuario
         
         // Busca el usuario por email
