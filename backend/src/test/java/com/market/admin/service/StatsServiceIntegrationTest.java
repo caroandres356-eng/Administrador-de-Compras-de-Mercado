@@ -6,6 +6,7 @@ import com.market.admin.model.Product;
 import com.market.admin.model.ShoppingList;
 import com.market.admin.model.User;
 import com.market.admin.repository.ProductRepository;
+import com.market.admin.repository.ReminderRepository;
 import com.market.admin.repository.ShoppingListRepository;
 import com.market.admin.repository.UserRepository;
 import org.junit.jupiter.api.AfterEach;
@@ -17,8 +18,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +25,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @ActiveProfiles("test")
-@Transactional
 class StatsServiceIntegrationTest {
 
     @Autowired
@@ -47,10 +45,15 @@ class StatsServiceIntegrationTest {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private ReminderRepository reminderRepository;
+
     private User testUser;
 
     @BeforeEach
     void setUp() {
+        SecurityContextHolder.clearContext();
+        reminderRepository.deleteAll();
         productRepository.deleteAll();
         shoppingListRepository.deleteAll();
         userRepository.deleteAll();
@@ -75,6 +78,7 @@ class StatsServiceIntegrationTest {
     @AfterEach
     void tearDown() {
         SecurityContextHolder.clearContext();
+        reminderRepository.deleteAll();
         productRepository.deleteAll();
         shoppingListRepository.deleteAll();
         userRepository.deleteAll();

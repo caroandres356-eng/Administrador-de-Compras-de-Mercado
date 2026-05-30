@@ -26,19 +26,22 @@ MercaList es una aplicación full-stack diseñada para gestionar listas de compr
 ## 🛠️ Instalación y Configuración
 
 ### Requisitos Previos
+- **Docker Desktop** corriendo (reemplaza la necesidad de MySQL local)
 - **Node.js** (v18 o superior)
 - **Java JDK 21**
-- **Maven** (opcional, se puede usar el wrapper `./mvnw`)
-- **MySQL Server** corriendo localmente
+- **Maven**
 
 ### 1. Configuración del Backend (Spring Boot)
 
-El backend maneja la autenticación, persistencia de datos (MySQL) y lógica de negocio.
+El backend maneja la autenticación, persistencia de datos (MariaDB) y lógica de negocio.
 
-**Requisitos MySQL:**
+**Base de datos con Docker (recomendado):**
 
-Asegúrate de tener un servidor MySQL corriendo.
-Crea una base de datos llamada `mercalist_db`.
+```bash
+docker compose -f docker-compose.dev.yml up -d
+```
+
+Esto levanta MariaDB en el puerto 3307 y crea automáticamente `mercalist_db` y `mercalist_test_db`.
 
 **Configuración de Variables de Entorno (Recomendado):** Para evitar subir contraseñas al código, el proyecto usa variables de entorno en el perfil `dev`. Configura las siguientes variables en tu sistema o IDE para que coincidan con tu MySQL local:
 
@@ -269,38 +272,101 @@ curl -X POST "$URL/createItem?name=Despliegue-CRUD" \
 
 ## 🚀 Arranque desde cero (máquina nueva)
 
-```bash
-# 1. Prerequisitos (Arch Linux)
-sudo pacman -S docker jdk17-openjdk maven
-sudo systemctl enable docker && sudo systemctl start docker
-sudo usermod -aG docker $USER  # cerrar sesión y volver a entrar
+> **Prerequisitos:** Docker Desktop corriendo, JDK 21, Maven, Node.js 18+.
 
-# 2. Clonar
+### Linux / macOS
+
+```bash
+# 1. Clonar y entrar al repo
 git clone https://github.com/caroandres356-eng/Administrador-de-Compras-de-Mercado.git
 cd Administrador-de-Compras-de-Mercado
+git checkout feature_julian
 
-# 3. Levantar la BD
+# 2. Levantar BD (crea mercalist_db Y mercalist_test_db automáticamente)
 docker compose -f docker-compose.dev.yml up -d
 
-# 4. Correr tests
-cd backend && DB_PORT=3307 SPRING_PROFILES_ACTIVE=dev mvn test
+# 3. Correr tests
+cd backend
+DB_PORT=3307 SPRING_PROFILES_ACTIVE=dev mvn test
 # Resultado esperado: Tests run: 86, Failures: 0, Errors: 0
 
-# 5. Empaquetar y correr manualmente
+# 4. Empaquetar y correr el backend
 mvn clean package -DskipTests
 DB_PORT=3307 SPRING_PROFILES_ACTIVE=dev java -jar target/admin-0.0.1-SNAPSHOT.jar
 # http://localhost:8080/swagger-ui/index.html
 
-# 6. Construir imagen Docker
-cd .. && docker build -t market-admin:latest ./backend
+# 5. Construir imagen Docker
+cd ..
+docker build -t market-admin:latest ./backend
 docker run -d --name market-admin --network host \
   -e SPRING_PROFILES_ACTIVE=dev -e DB_PORT=3307 \
   -e DB_NAME=mercalist_db -e DB_USER=root -e DB_PASS=Pipesofi2006 \
   market-admin:latest
 
-# 7. Levantar Jenkins (si ya fue configurado antes)
-docker start jenkins
-# http://localhost:8083 | admin / admin
+# 6. Levantar Jenkins
+docker run -d --name jenkins \
+  -p 8083:8080 -p 50000:50000 \
+  -v jenkins_home:/var/jenkins_home \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  jenkins/jenkins:lts
+# http://localhost:8083 | contraseña inicial: docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+```
+
+### Windows (PowerShell / CMD)
+
+```powershell
+# 1. Clonar y entrar al repo
+git clone https://github.com/caroandres356-eng/Administrador-de-Compras-de-Mercado.git
+cd Administrador-de-Compras-de-Mercado
+git checkout feature_julian
+
+# 2. Levantar BD (crea mercalist_db Y mercalist_test_db automáticamente)
+docker compose -f docker-compose.dev.yml up -d
+docker ps   # esperar hasta que aparezca (healthy)
+
+# 3. Correr tests (CMD)
+cd backend
+set DB_PORT=3307
+set SPRING_PROFILES_ACTIVE=dev
+mvn test
+# Resultado esperado: Tests run: 86, Failures: 0, Errors: 0
+
+# 4. Empaquetar y correr el backend (CMD)
+mvn clean package -DskipTests
+java -jar target/admin-0.0.1-SNAPSHOT.jar
+# http://localhost:8080/swagger-ui/index.html
+
+# 5. Construir imagen Docker
+cd ..
+docker build -t market-admin:latest ./backend
+docker run -d --name market-admin --network host ^
+  -e SPRING_PROFILES_ACTIVE=dev -e DB_PORT=3307 ^
+  -e DB_NAME=mercalist_db -e DB_USER=root -e DB_PASS=Pipesofi2006 ^
+  market-admin:latest
+
+# 6. Levantar Jenkins
+docker run -d --name jenkins ^
+  -p 8083:8080 -p 50000:50000 ^
+  -v jenkins_home:/var/jenkins_home ^
+  jenkins/jenkins:lts
+# http://localhost:8083 | contraseña inicial:
+# docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+```
+
+### Importar jobs en Jenkins (PowerShell, desde raíz del repo)
+
+```powershell
+$b64 = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes("admin:TU_CONTRASEÑA"))
+$crumbResp = Invoke-RestMethod -Uri "http://localhost:8083/crumbIssuer/api/json" `
+  -Headers @{Authorization="Basic $b64"} -SessionVariable sess
+$crumb = $crumbResp.crumb
+
+foreach ($job in @("MercaList-Deploy","Freestyle-CRUD","Despliegue-CRUD")) {
+  $xml = Get-Content "jenkins-jobs\$job.xml" -Raw
+  Invoke-RestMethod -Uri "http://localhost:8083/createItem?name=$job" -Method Post `
+    -Headers @{Authorization="Basic $b64"; "Jenkins-Crumb"=$crumb} `
+    -Body $xml -ContentType "application/xml" -WebSession $sess
+}
 ```
 
 ---
