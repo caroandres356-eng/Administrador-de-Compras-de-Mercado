@@ -14,5 +14,24 @@ services:
       timeout: 20s
       retries: 10
 
+  db-init:
+    image: mariadb:11
+    command:
+      - sh
+      - -c
+      - |
+        echo "Waiting for db to be ready..."
+        until mariadb -h db -u root -p"$${DB_PASS:-Pipesofi2006}" -e "SELECT 1" >/dev/null 2>&1; do sleep 2; done
+        echo "Creating mercalist_test_db if not exists..."
+        mariadb -h db -u root -p"$${DB_PASS:-Pipesofi2006}" \
+          -e "CREATE DATABASE IF NOT EXISTS mercalist_test_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+        echo "Done."
+    environment:
+      DB_PASS: ${DB_PASS:-Pipesofi2006}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+
 volumes:
   mariadb_dev_data:
