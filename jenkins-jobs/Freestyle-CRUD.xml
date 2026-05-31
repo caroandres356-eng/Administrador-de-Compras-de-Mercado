@@ -26,7 +26,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>docker rm -f test-mariadb 2&gt;/dev/null; docker run -d --name test-mariadb --network container:jenkins -e MYSQL_ROOT_PASSWORD=Pipesofi2006 -e MYSQL_DATABASE=mercalist_test_db mariadb:11 &amp;&amp; sleep 5 &amp;&amp; cd backend &amp;&amp; mvn clean package</command>
+      <command>docker rm -f test-mariadb 2&gt;/dev/null || true; docker run -d --name test-mariadb --network container:jenkins -e MYSQL_ROOT_PASSWORD=Pipesofi2006 -e MYSQL_DATABASE=mercalist_test_db mariadb:11 &amp;&amp; sleep 10 &amp;&amp; cd backend &amp;&amp; DB_PORT=3306 mvn clean package</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
