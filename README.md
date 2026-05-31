@@ -530,3 +530,227 @@ El backend cuenta con documentación técnica detallada (JavaDoc) de todas sus c
    ```
 3. Una vez finalizado el proceso, la documentación HTML estará disponible localmente. Puedes acceder a ella abriendo el siguiente archivo en tu navegador web:
    `backend/target/reports/apidocs/index.html` (o `backend/target/site/apidocs/index.html` dependiendo de la versión del plugin).
+
+---
+
+## 🎓 Guía de presentación — Paso a paso
+
+### Vista general
+
+| Parte | Tecnología | Puerto | Comando |
+|-------|-----------|--------|---------|
+| Base de datos | MariaDB (Docker) | `3307` | `docker compose -f docker-compose.dev.yml up -d` |
+| Backend | Spring Boot (Maven) | `8080` | `mvn spring-boot:run` |
+| Frontend | Next.js | `3000` | `npm run dev` |
+
+### Matar todo antes de empezar
+
+```bash
+kill $(lsof -t -i :3000) $(lsof -t -i :8080) 2>/dev/null
+docker compose -f docker-compose.dev.yml down 2>/dev/null
+```
+
+### Orden de arranque (3 terminales)
+
+**Terminal 1 — Base de datos:**
+```bash
+cd /ruta/del/proyecto
+sudo systemctl start docker
+docker compose -f docker-compose.dev.yml up -d
+# Esperar ~10s a que MariaDB esté healthy
+```
+
+El servicio `db-init` crea automáticamente `mercalist_test_db` si no existe (ya no hay que hacerlo manual).
+
+**Terminal 2 — Backend:**
+```bash
+cd /ruta/del/proyecto/backend
+mvn spring-boot:run
+```
+→ `http://localhost:8080/swagger-ui/index.html`
+
+**Terminal 3 — Frontend:**
+```bash
+cd /ruta/del/proyecto/frontend
+npm run dev
+```
+→ `http://localhost:3000`
+
+### Correr tests
+
+```bash
+cd /ruta/del/proyecto/backend
+mvn test
+```
+Resultado esperado: `Tests run: 86, Failures: 0, Errors: 0`
+
+También se pueden correr solo los unitarios (no necesitan DB):
+```bash
+mvn test -Dtest="ShoppingListServiceTest,ProductServiceTest,ReminderServiceTest"
+```
+
+### Jenkins (CI/CD) — opcional
+
+Ya está corriendo en `http://localhost:8083` — usuario: `admin` / contraseña: `admin`
+
+Ahí se ven los pipelines `MercaList-Deploy`, `Freestyle-CRUD`, etc.
+
+### Demostración de la app
+
+1. Abrir `http://localhost:3000`
+2. Hacer clic en **Registrarse** y crear una cuenta
+3. Iniciar sesión con el correo y contraseña
+4. Crear una lista de compras (botón `+`)
+5. Entrar a la lista y agregar productos con precio y categoría
+6. Marcar productos como comprados
+7. Volver al dashboard y entrar a **Estadísticas** para ver los gráficos
+8. (Opcional) Mostrar la API en `http://localhost:8080/swagger-ui/index.html`
+
+### Opción alternativa — 1 sola terminal (todo en background)
+
+```bash
+cd /ruta/del/proyecto
+sudo systemctl start docker
+docker compose -f docker-compose.dev.yml up -d
+cd backend && nohup mvn spring-boot:run > backend.log &
+cd ../frontend && nohup npm run dev > frontend.log &
+tail -f backend.log
+
+---
+
+## 🪟🐧 Linux vs Windows — Comandos lado a lado
+
+| Acción | Linux (bash) | Windows (PowerShell) |
+|--------|-------------|---------------------|
+| **Prender Docker** | `sudo systemctl start docker` | Abrir Docker Desktop (menú inicio) |
+| **Matar frontend** | `kill $(lsof -t -i :3000)` | `Stop-Process -Id (Get-NetTCPConnection -LocalPort 3000).OwningProcess` |
+| **Matar backend** | `kill $(lsof -t -i :8080)` | `Stop-Process -Id (Get-NetTCPConnection -LocalPort 8080).OwningProcess` |
+| **Matar todo rápido** | `kill $(lsof -t -i :3000 -i :8080) 2>/dev/null` | `Get-NetTCPConnection -LocalPort 3000,8080 \| Stop-Process -Id \$_.OwningProcess` |
+| **Bajar Docker** | `docker compose -f docker-compose.dev.yml down` | `docker compose -f docker-compose.dev.yml down` (igual) |
+| **Levantar DB** | `docker compose -f docker-compose.dev.yml up -d` | `docker compose -f docker-compose.dev.yml up -d` (igual) |
+| **Backend** | `cd backend && mvn spring-boot:run` | `cd backend; mvn spring-boot:run` |
+| **Frontend** | `cd frontend && npm run dev` | `cd frontend; npm run dev` |
+| **Tests** | `cd backend && mvn test` | `cd backend; mvn test` |
+| **Tests unitarios** | `mvn test -Dtest="ShoppingListServiceTest,..."` | `mvn test -Dtest="ShoppingListServiceTest,..."` (igual) |
+| **Variables entorno** | `DB_PORT=3307 mvn test` | `$env:DB_PORT=3307; mvn test` |
+| **Ver logs (tail)** | `tail -f backend.log` | `Get-Content backend.log -Wait` |
+| **Ruta proyecto** | `/home/user/proyecto` | `C:\Users\user\proyecto` |
+
+---
+
+## 📋 Después de `git clone` — Guía completa paso a paso
+
+### 1. Clonar y entrar al repo
+```bash
+git clone https://github.com/caroandres356-eng/Administrador-de-Compras-de-Mercado.git
+cd Administrador-de-Compras-de-Mercado
+```
+
+### 2. Prender Docker y levantar base de datos
+```bash
+sudo systemctl start docker
+docker compose -f docker-compose.dev.yml up -d
+# esperar ~10s hasta que MariaDB aparezca como (healthy)
+```
+
+El servicio `db-init` crea `mercalist_test_db` automáticamente.
+
+### 3. Correr la app (opcional — para desarrollo)
+
+**Terminal A — Backend:**
+```bash
+cd backend
+mvn spring-boot:run
+# → http://localhost:8080/swagger-ui/index.html
+```
+
+**Terminal B — Frontend:**
+```bash
+cd frontend
+npm run dev
+# → http://localhost:3000
+```
+
+### 4. Correr tests
+```bash
+cd backend
+mvn test
+```
+Resultado esperado: `Tests run: 86, Failures: 0, Errors: 0`
+
+> Si el test falla por conexión a la base de datos, es porque el puerto 3307 no está libre en tu máquina. En ese caso cambia el puerto en `.env` (ej. `DB_PORT=3308`) y usa ese mismo puerto al correr los tests: `DB_PORT=3308 mvn test`.
+
+### 5. Levantar Jenkins (CI/CD)
+```bash
+docker rm -f jenkins 2>/dev/null
+docker run -d --name jenkins \
+  -p 8083:8080 -p 50000:50000 \
+  -v jenkins_home:/var/jenkins_home \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v $(which docker):/usr/local/bin/docker \
+  -u root \
+  jenkins/jenkins:lts
+```
+Monta el socket de Docker + el binario `docker` para que Jenkins ejecute comandos Docker. Corre como root para evitar problemas de permisos.
+
+### 6. Configurar Jenkins (primera vez)
+```bash
+# Obtener la contraseña inicial
+docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+```
+1. Abrir `http://localhost:8083`
+2. Pegar la contraseña
+3. Instalar **plugins sugeridos**
+4. Crear usuario: `admin` / contraseña: `admin`
+
+### 7. Importar los 3 jobs
+```bash
+for job in MercaList-Deploy Freestyle-CRUD Despliegue-CRUD; do
+  curl -X POST "http://localhost:8083/createItem?name=$job" \
+    --user "admin:admin" -H "Content-Type: application/xml" \
+    -d @jenkins-jobs/$job.xml
+done
+```
+
+### 8. Instalar Maven dentro de Jenkins
+La imagen `jenkins/jenkins:lts` no incluye Maven. Hay que instalarlo manualmente:
+```bash
+docker exec jenkins sh -c "\
+  curl -sL https://dlcdn.apache.org/maven/maven-3/3.9.16/binaries/apache-maven-3.9.16-bin.tar.gz \
+    -o /tmp/maven.tar.gz && \
+  tar xzf /tmp/maven.tar.gz -C /opt/ && \
+  ln -sf /opt/apache-maven-3.9.16/bin/mvn /usr/local/bin/mvn"
+```
+Verificar: `docker exec jenkins mvn --version`
+
+### 9. Configurar Git safe.directory
+Los workspaces de Jenkins tienen dueños mezclados (root y jenkins), lo que hace que Git se niegue a trabajar. Solución:
+```bash
+for ws in Freestyle-CRUD Despliegue-CRUD MercaList-Deploy; do
+  docker exec jenkins git config --global --add safe.directory \
+    "/var/jenkins_home/workspace/$ws" 2>/dev/null || true
+done
+```
+
+### 10. Disparar el pipeline MercaList-Deploy
+Desde la web `http://localhost:8083`:
+- Entrar a **MercaList-Deploy**
+- Click en **"Construir ahora"**
+
+O desde terminal:
+```bash
+curl -X POST "http://localhost:8083/job/MercaList-Deploy/build" --user admin:admin
+```
+
+El pipeline ejecuta automáticamente: checkout del repo → `mvn clean package` → `mvn test` (86 tests) → `docker build -t market-admin` → `docker run -p 8080:8080`
+
+### 11. Problemas comunes y soluciones
+
+| Problema | Causa | Solución |
+|---|---|---|
+| `mvn: not found` | Jenkins no trae Maven instalado | Seguir el paso 8 (instalar Maven) |
+| `fatal: not in a git directory` / `dubious ownership` | Dueño del `.git` no coincide con el usuario jenkins | Seguir el paso 9 (safe.directory) |
+| `port 8080 already in use` | Otro proceso (o el backend) ya ocupa el puerto | El pipeline ejecuta `fuser -k 8080/tcp` automáticamente |
+| `Pipeline script from SCM` falla al cargar Jenkinsfile | Incompatibilidad del plugin Git con Jenkins 2.555+ | `MercaList-Deploy` usa pipeline inline en vez de "from SCM" |
+| La app no arranca o tests fallan | Puerto 3307 ocupado en tu máquina | Cambiar `DB_PORT` en `.env` y usar ese puerto en los comandos `mvn` |
+```
