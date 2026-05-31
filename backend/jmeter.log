@@ -1,25 +1,25 @@
-2026-05-30 15:19:22,976 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
-2026-05-30 15:19:22,987 INFO o.a.j.JMeter: Loading user properties from: /home/Pipe/.local/share/apache-jmeter-5.6.3/bin/user.properties
-2026-05-30 15:19:22,987 INFO o.a.j.JMeter: Loading system properties from: /home/Pipe/.local/share/apache-jmeter-5.6.3/bin/system.properties
-2026-05-30 15:19:22,990 INFO o.a.j.JMeter: Copyright (c) 1998-2024 The Apache Software Foundation
-2026-05-30 15:19:22,990 INFO o.a.j.JMeter: Version 5.6.3
-2026-05-30 15:19:22,990 INFO o.a.j.JMeter: java.version=17.0.19
-2026-05-30 15:19:22,990 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
-2026-05-30 15:19:22,990 INFO o.a.j.JMeter: os.name=Linux
-2026-05-30 15:19:22,990 INFO o.a.j.JMeter: os.arch=amd64
-2026-05-30 15:19:22,991 INFO o.a.j.JMeter: os.version=7.0.3-arch1-2
-2026-05-30 15:19:22,991 INFO o.a.j.JMeter: file.encoding=ANSI_X3.4-1968
-2026-05-30 15:19:22,991 INFO o.a.j.JMeter: java.awt.headless=true
-2026-05-30 15:19:22,991 INFO o.a.j.JMeter: Max memory     =1073741824
-2026-05-30 15:19:22,991 INFO o.a.j.JMeter: Available Processors =12
-2026-05-30 15:19:22,997 INFO o.a.j.JMeter: Default Locale=English (EN)
-2026-05-30 15:19:22,997 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
-2026-05-30 15:19:22,997 INFO o.a.j.JMeter: JMeterHome=/home/Pipe/.local/share/apache-jmeter-5.6.3
-2026-05-30 15:19:22,998 INFO o.a.j.JMeter: user.dir  =/home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/backend
-2026-05-30 15:19:22,998 INFO o.a.j.JMeter: PWD       =/home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/backend
-2026-05-30 15:19:22,998 INFO o.a.j.JMeter: IP: 192.168.20.30 Name: archlinux FullName: archlinux
-2026-05-30 15:19:23,004 ERROR o.a.j.JMeter: An error occurred: 
-org.apache.jmeter.report.config.ConfigurationException: The file /home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/backend/testing/rendimiento/planes/MercaList-50usuarios.jmx doesn't exist or can't be opened
+2026-05-30 22:57:45,940 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2026-05-30 22:57:45,951 INFO o.a.j.JMeter: Loading user properties from: /home/Pipe/.local/share/apache-jmeter-5.6.3/bin/user.properties
+2026-05-30 22:57:45,951 INFO o.a.j.JMeter: Loading system properties from: /home/Pipe/.local/share/apache-jmeter-5.6.3/bin/system.properties
+2026-05-30 22:57:45,955 INFO o.a.j.JMeter: Copyright (c) 1998-2024 The Apache Software Foundation
+2026-05-30 22:57:45,955 INFO o.a.j.JMeter: Version 5.6.3
+2026-05-30 22:57:45,955 INFO o.a.j.JMeter: java.version=17.0.19
+2026-05-30 22:57:45,955 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2026-05-30 22:57:45,955 INFO o.a.j.JMeter: os.name=Linux
+2026-05-30 22:57:45,955 INFO o.a.j.JMeter: os.arch=amd64
+2026-05-30 22:57:45,955 INFO o.a.j.JMeter: os.version=7.0.3-arch1-2
+2026-05-30 22:57:45,955 INFO o.a.j.JMeter: file.encoding=ANSI_X3.4-1968
+2026-05-30 22:57:45,955 INFO o.a.j.JMeter: java.awt.headless=true
+2026-05-30 22:57:45,955 INFO o.a.j.JMeter: Max memory     =1073741824
+2026-05-30 22:57:45,955 INFO o.a.j.JMeter: Available Processors =12
+2026-05-30 22:57:45,961 INFO o.a.j.JMeter: Default Locale=English (EN)
+2026-05-30 22:57:45,961 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2026-05-30 22:57:45,961 INFO o.a.j.JMeter: JMeterHome=/home/Pipe/.local/share/apache-jmeter-5.6.3
+2026-05-30 22:57:45,961 INFO o.a.j.JMeter: user.dir  =/home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/backend
+2026-05-30 22:57:45,961 INFO o.a.j.JMeter: PWD       =/home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/backend
+2026-05-30 22:57:45,961 INFO o.a.j.JMeter: IP: 192.168.20.30 Name: archlinux FullName: archlinux
+2026-05-30 22:57:45,968 ERROR o.a.j.JMeter: An error occurred: 
+org.apache.jmeter.report.config.ConfigurationException: The file /home/Pipe/Downloads/basura/Administrador-de-Compras-de-Mercado/backend/testing/rendimiento/planes/MercaList-100usuarios.jmx doesn't exist or can't be opened
 	at org.apache.jmeter.JMeter.runNonGui(JMeter.java:950) ~[ApacheJMeter_core.jar:5.6.3]
 	at org.apache.jmeter.JMeter.startNonGui(JMeter.java:940) ~[ApacheJMeter_core.jar:5.6.3]
 	at org.apache.jmeter.JMeter.start(JMeter.java:508) [ApacheJMeter_core.jar:5.6.3]
